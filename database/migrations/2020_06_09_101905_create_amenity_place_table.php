@@ -15,6 +15,8 @@ class CreateAmenityPlaceTable extends Migration
     {
         Schema::create('amenity_place', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('place_id')->constrained();
+            $table->foreignId('amenity_id')->constrained();
             $table->timestamps();
         });
     }

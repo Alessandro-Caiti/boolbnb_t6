@@ -14,7 +14,10 @@ class CreateInfoUsersTable extends Migration
     public function up()
     {
         Schema::create('info_users', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('name');
+            $table->string('lastname');
+            $table->date('date_of_birth');
             $table->timestamps();
         });
     }

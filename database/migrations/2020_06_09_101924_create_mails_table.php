@@ -15,6 +15,9 @@ class CreateMailsTable extends Migration
     {
         Schema::create('mails', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('place_id')->constrained();
+            $table->string('mail', 80);
+            $table->text('message');
             $table->timestamps();
         });
     }

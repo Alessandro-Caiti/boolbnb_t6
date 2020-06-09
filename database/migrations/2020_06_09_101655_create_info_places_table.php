@@ -14,7 +14,12 @@ class CreateInfoPlacesTable extends Migration
     public function up()
     {
         Schema::create('info_places', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('place_id')->constrained();
+            $table->tinyInteger('rooms');
+            $table->tinyInteger('beds');
+            $table->tinyInteger('bathrooms');
+            $table->tinyInteger('m2')->nullable();
+            $table->text('description');
             $table->timestamps();
         });
     }

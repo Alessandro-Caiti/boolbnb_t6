@@ -15,6 +15,14 @@ class CreatePlacesTable extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('summary', 50);
+            $table->decimal('price', 6, 2);
+            $table->string('address', 150);
+            $table->string('city', 50);
+            $table->float('lat', 10, 6)->nullable();
+            $table->float('long', 10, 6)->nullable();
+            $table->boolean('visible')->default(1);
             $table->timestamps();
         });
     }
