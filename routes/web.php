@@ -22,4 +22,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::prefix('user')
+    ->name('user.')
+    ->namespace('User')
+    ->middleware('auth')
+    ->group(function() {
+        Route::resource('places' , 'PlaceController');
+        // Route::resource('photos' , 'PhotoController');
+        // Route::resource('categories' , 'CategoryController');
+        // Route::resource('tags' , 'TagController');
+        // Route::resource('users' , 'UserController');
+    });
+
 Route::get('/home', 'HomeController@index')->name('home');
