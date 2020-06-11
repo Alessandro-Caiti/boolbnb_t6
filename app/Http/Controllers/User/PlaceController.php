@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Place;
+use App\Amenity;
+use App\InfoPlace;
+use App\Photo;
+
 
 class PlaceController extends Controller
 {
@@ -26,9 +30,10 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        $user = User::all();
+        $amenities = Amenity::all();
+        $photos = Photo::all();
 
-        return view('user.places.create', compact('user'));
+        return view('user.places.create', compact('amenities', 'photos'));
     }
 
     /**
@@ -39,7 +44,11 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // if(!isset($data['visible'])) {
+        //     $data['visible'] = 0;
+        // } else {
+        //     $data['visible'] = 1;
+        // }
     }
 
     /**
