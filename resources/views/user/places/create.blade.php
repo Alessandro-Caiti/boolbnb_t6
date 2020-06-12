@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-12">
                 {{-- sezione di gestione errori nel caso di ritorno dalla funzione store --}}
-                {{-- @foreach ($errors->all() as $message)
+                @foreach ($errors->all() as $message)
                     {{$message}}
-                @endforeach --}}
+                @endforeach
                 {{-- Fine sezione --}}
                 {{-- Nel form imposto l'azione, il medoto e l'enctype (Senza quest'ultimo non posso recuperare file) --}}
                 <form action="{{route('user.places.store')}}" method="POST" enctype="multipart/form-data">
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label for="description">Descrizione</label>
                         <div class="">
-                            <textarea name="description" id="description" rows="10" cols="50">{{old('description')}}</textarea>
+                            <textarea name="description" id="description" rows="10" style='min-width:100%'>{{old('description')}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -68,9 +68,9 @@
                             <label for="photos-{{$photo->id}}">{{$photo->name}}</label>
                             <input type="checkbox" name="photos[]" id="photos-{{$photo->id}}" value="{{$photo->id}}">
                         @endforeach
-                        <div class="new-photo">
-                            <label for="photo">Aggiungi nuova foto: </label>
-                            <input type="file" name="photo" id="photo">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" name="path">
+                            <label class="custom-file-label" for="inputGroupFile01">Aggiungi Foto</label>
                         </div>
                     </div>
 
@@ -81,6 +81,8 @@
                           <label class="custom-control-label" for="customSwitches">Visible</label>
                         </div>
                     </div>
+
+                    <input class="btn btn-primary" type="submit" value="Invia Dati">
 
                 </form>
             </div>

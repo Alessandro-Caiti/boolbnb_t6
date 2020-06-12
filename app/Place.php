@@ -9,6 +9,7 @@ class Place extends Model
     protected $fillable = [
         'user_id',
         'summary',
+        'slug',
         'price',
         'address',
         'city',

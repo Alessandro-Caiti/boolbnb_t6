@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label for="description">Descrizione</label>
                         <div class="">
-                            <textarea name="description" id="description" rows="10" cols="50">{{$infoPlace['description']}}</textarea>
+                            <textarea name="description" id="description" rows="10" style='min-width:100%'>{{$infoPlace['description']}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -89,7 +89,7 @@
                           <label class="custom-control-label" for="customSwitches">Visible</label>
                         </div>
                     </div>
-
+                    <input class="btn btn-primary" type="submit" value="Invia Dati">
                 </form>
             </div>
         </div>

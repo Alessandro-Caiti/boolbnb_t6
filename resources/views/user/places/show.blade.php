@@ -1,1 +1,2 @@
-<h1>Mostra</h1>
+<h1>{{$place->summary}}</h1>
+<p>{{$place->info->description}}</p>

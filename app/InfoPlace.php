@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class InfoPlace extends Model
 {
     protected $fillable = [
-        'place_id',
+        // 'place_id',
         'rooms',
         'beds',
         'bathrooms',

@@ -17,6 +17,7 @@ class CreatePlacesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('summary', 50);
+            $table->string('slug', 50);
             $table->decimal('price', 6, 2);
             $table->string('address', 150);
             $table->string('city', 50);

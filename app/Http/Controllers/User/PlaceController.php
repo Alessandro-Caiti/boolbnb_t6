@@ -4,6 +4,11 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+
 use App\User;
 use App\Place;
 use App\Amenity;
@@ -44,11 +49,60 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
+
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+        $data['slug'] = Str::slug($data['summary'], '-') ;
+        $data['lat'] = 1;
+        $data['long'] = 1;
+
+
+        $validator = Validator::make($data, [
+            'summary' => 'required|string|max:50',
+            'price' => 'required|numeric',
+            'address' => 'required|string|max:150',
+            'city' => 'required|string|max:50',
+            'rooms' => 'required|numeric',
+            'beds' => 'required|numeric',
+            'bathrooms' => 'required|numeric',
+            'm2' => 'numeric',
+            'description' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('user.places.create')
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        // if (isset($data['photo'])) {
+        //     $path = Storage::disk('public')->put('images', $data['photo']);
+        //     $photo = new Photo;
+        //     $photo->user_id = Auth::id();
+        //     $photo->name = $data['title'];
+        //     $photo->path = $path;
+        //     $photo->description = 'Lorem ipsum';
+        //     $photo->save();
+        // }
+
+
+        $path = Storage::disk('public')->put('images', $data['path']);
+
+        $place = new Place;
+        $place->fill($data);
+        $savedPlace = $place->save();
+
+        $infoPlace = new InfoPlace;
+        $infoPlace->place_id = $place->id;
+        $infoPlace->fill($data);
+        $savedInfo = $infoPlace->save();
         // if(!isset($data['visible'])) {
         //     $data['visible'] = 0;
         // } else {
         //     $data['visible'] = 1;
         // }
+
+        return redirect()->route('user.places.show' , $place->id);
     }
 
     /**
@@ -59,7 +113,9 @@ class PlaceController extends Controller
      */
     public function show($id)
     {
-        return view('user.places.show');
+        $place = Place::findOrFail($id);
+        // $infoPlace = InfoPlace::where('place_id' , $id)->first();
+        return view('user.places.show' , compact('place'));
     }
 
     /**
