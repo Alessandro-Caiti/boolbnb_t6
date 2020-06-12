@@ -10,7 +10,7 @@
                 @endforeach --}}
                 {{-- Fine sezione --}}
                 {{-- Nel form imposto l'azione, il medoto e l'enctype (Senza quest'ultimo non posso recuperare file) --}}
-                <form action="{{route('user.places.update')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('user.places.update' , $place->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -32,24 +32,24 @@
                     <div class="form-group">
                         <label for="description">Descrizione</label>
                         <div class="">
-                            <textarea name="description" id="description" rows="10" style='min-width:100%'>{{$infoPlace['description']}}</textarea>
+                            <textarea name="description" id="description" rows="10" style='min-width:100%'>{{$place->info->description}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="rooms">Numero stanze</label>
-                        <input type="text" name="rooms" id="rooms" class="form-control" value="{{$infoPlace['rooms']}}">
+                        <input type="text" name="rooms" id="rooms" class="form-control" value="{{$place->info->rooms}}">
                     </div>
                     <div class="form-group">
                         <label for="beds">Posti letto</label>
-                        <input type="text" name="beds" id="beds" class="form-control" value="{{$infoPlace['beds']}}">
+                        <input type="text" name="beds" id="beds" class="form-control" value="{{$place->info->beds}}">
                     </div>
                     <div class="form-group">
                         <label for="bathrooms">Servizi igienici</label>
-                        <input type="text" name="bathrooms" id="bathrooms" class="form-control" value="{{$infoPlace['bathrooms']}}">
+                        <input type="text" name="bathrooms" id="bathrooms" class="form-control" value="{{$place->info->bathrooms}}">
                     </div>
                     <div class="form-group">
                         <label for="m2">Metri quadri</label>
-                        <input type="text" name="m2" id="m2" class="form-control" value="{{$infoPlace['m2']}}">
+                        <input type="text" name="m2" id="m2" class="form-control" value="{{$place->info->m2}}">
                     </div>
                     <div class="form-group">
                         <h3>Servizi</h3>
@@ -73,14 +73,6 @@
                             <input type="file" name="photo" id="photo">
                         </div>
                     </div>
-
-                    <input class="form-check-input" type="checkbox" name="amenities[]" id="{{$amenity['id']}}" value="{{$amenity['id']}}"
-                                        {{-- faccio un check se l'id del tag è presente nell'array oldtags OPPURE se è presente nell'array tags di page --}}
-                                        {{(
-                                            (in_array($amenity['id'], $oldAmenities) == true) ||
-                                            (in_array($amenity['id'], $place['amenities']) == true)
-                                            ? 'checked' : ''  )}}>
-
 
                     <div class="form-group">
                       <!-- Default switch -->

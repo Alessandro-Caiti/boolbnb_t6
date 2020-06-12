@@ -49,13 +49,11 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-
         $data = $request->all();
         $data['user_id'] = Auth::id();
         $data['slug'] = Str::slug($data['summary'], '-') ;
         $data['lat'] = 1;
         $data['long'] = 1;
-
 
         $validator = Validator::make($data, [
             'summary' => 'required|string|max:50',
@@ -75,17 +73,6 @@ class PlaceController extends Controller
             ->withInput();
         }
 
-        // if (isset($data['photo'])) {
-        //     $path = Storage::disk('public')->put('images', $data['photo']);
-        //     $photo = new Photo;
-        //     $photo->user_id = Auth::id();
-        //     $photo->name = $data['title'];
-        //     $photo->path = $path;
-        //     $photo->description = 'Lorem ipsum';
-        //     $photo->save();
-        // }
-
-
         $path = Storage::disk('public')->put('images', $data['path']);
 
         $place = new Place;
@@ -96,11 +83,15 @@ class PlaceController extends Controller
         $infoPlace->place_id = $place->id;
         $infoPlace->fill($data);
         $savedInfo = $infoPlace->save();
-        // if(!isset($data['visible'])) {
-        //     $data['visible'] = 0;
-        // } else {
-        //     $data['visible'] = 1;
-        // }
+
+        if (isset($data['path'])) {
+            $path = Storage::disk('public')->put('images', $data['path']);
+            $photo = new Photo;
+            $photo->place_id = $place->id;
+            $photo->name = $data['summary'];
+            $photo->path = $path;
+            $photo->save();
+        }
 
         return redirect()->route('user.places.show' , $place->id);
     }
@@ -114,7 +105,6 @@ class PlaceController extends Controller
     public function show($id)
     {
         $place = Place::findOrFail($id);
-        // $infoPlace = InfoPlace::where('place_id' , $id)->first();
         return view('user.places.show' , compact('place'));
     }
 
@@ -126,7 +116,15 @@ class PlaceController extends Controller
      */
     public function edit($id)
     {
-        return view('user.places.edit');
+        $userId = Auth::id();
+        $place = Place::findOrFail($id);
+        $amenities = Amenity::all();
+        $photos = Photo::all();
+        // $infoPlace = InfoPlace::where('place_id' , $id)->first();
+        if ($userId != $place->user_id) {
+            abort('404');
+        }
+        return view('user.places.edit' , compact('place' , 'amenities' , 'photos'));
     }
 
     /**
@@ -138,7 +136,53 @@ class PlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $userId = Auth::id();
+        $place = Place::findOrFail($id);
+        $infoPlace = InfoPlace::where('place_id' , $id)->first();
+        if ($userId != $place->user_id) {
+            abort('404');
+        }
+
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['summary'], '-') ;
+
+        $validator = Validator::make($data, [
+            'summary' => 'required|string|max:50',
+            'price' => 'required|numeric',
+            'address' => 'required|string|max:150',
+            'city' => 'required|string|max:50',
+            'rooms' => 'required|numeric',
+            'beds' => 'required|numeric',
+            'bathrooms' => 'required|numeric',
+            'm2' => 'numeric',
+            'description' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('user.places.edit')
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        // $path = Storage::disk('public')->put('images', $data['path']);
+
+        $place->fill($data);
+        $savedPlace = $place->update();
+
+        $infoPlace->fill($data);
+        $savedInfo = $infoPlace->update();
+
+        // if (isset($data['path'])) {
+        //     $path = Storage::disk('public')->put('images', $data['path']);
+        //     $photo = new Photo;
+        //     $photo->place_id = $place->id;
+        //     $photo->name = $data['summary'];
+        //     $photo->path = $path;
+        //     $photo->save();
+        // }
+
+        return redirect()->route('user.places.show' , $place->id);
     }
 
     /**
@@ -149,6 +193,16 @@ class PlaceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $userId = Auth::id();
+        $place = Place::findOrFail($id);
+        if ($userId != $place->user_id) {
+            abort('404');
+        }
+
+        $place->photo()->delete();
+        $place->info()->delete();
+        $place->delete();
+
+        return redirect()->route('user.places.index');
     }
 }

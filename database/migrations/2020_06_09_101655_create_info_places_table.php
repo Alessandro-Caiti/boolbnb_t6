@@ -18,7 +18,7 @@ class CreateInfoPlacesTable extends Migration
             $table->tinyInteger('rooms');
             $table->tinyInteger('beds');
             $table->tinyInteger('bathrooms');
-            $table->tinyInteger('m2')->nullable();
+            $table->smallInteger('m2')->nullable();
             $table->text('description');
             $table->timestamps();
         });
