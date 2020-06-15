@@ -3,6 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>prova index</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
+        <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
     <body>
@@ -21,5 +25,18 @@
                 </div>
             @endif
         </div>
-    </body>
+
+    <div class="container">
+        <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
+        <div id="mapid"></div>
+    </div>
+
+
+<style>
+  #mapid {height: 300px};
+  #mapid {width: 300px};
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+<script src="{{asset('js/algolia.js')}}"></script>
 </html>
