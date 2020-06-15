@@ -63,9 +63,12 @@
                     </div>
                     <div class="form-group">
                         <h3>Photos</h3>
+<<<<<<< Updated upstream
                         {{-- Ciclo FOREACH per tutte le foto già esistenti nell'array --}}
+=======
+>>>>>>> Stashed changes
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" name="path">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" name="path" multiple>
                             <label class="custom-file-label" for="inputGroupFile01">Aggiungi Foto</label>
                         </div>
                     </div>

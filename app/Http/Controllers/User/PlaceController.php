@@ -100,6 +100,7 @@ class PlaceController extends Controller
         }
         $place->amenities()->attach($data['amenities']);
 
+        $place->amenities()->attach($data['amenities']);
         return redirect()->route('user.places.show' , $place->id);
     }
 
@@ -143,7 +144,6 @@ class PlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $userId = Auth::id();
         $place = Place::findOrFail($id);
         $infoPlace = InfoPlace::where('place_id' , $id)->first();
@@ -153,7 +153,6 @@ class PlaceController extends Controller
 
         $data = $request->all();
         $data['slug'] = Str::slug($data['summary'], '-') ;
-
         $validator = Validator::make($data, [
             'summary' => 'required|string|max:50',
             'price' => 'required|numeric',
@@ -171,7 +170,6 @@ class PlaceController extends Controller
             ->withErrors($validator)
             ->withInput();
         }
-
         // $path = Storage::disk('public')->put('images', $data['path']);
 
         $place->fill($data);
@@ -188,6 +186,10 @@ class PlaceController extends Controller
         //     $photo->path = $path;
         //     $photo->save();
         // }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         $place->amenities()->sync($data['amenities']);
         return redirect()->route('user.places.show' , $place->id);
     }
@@ -205,6 +207,10 @@ class PlaceController extends Controller
         if ($userId != $place->user_id) {
             abort('404');
         }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         $place->amenities()->detach();
         $place->photo()->delete();
         $place->info()->delete();

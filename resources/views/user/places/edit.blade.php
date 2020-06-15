@@ -12,7 +12,7 @@
                 {{-- Nel form imposto l'azione, il medoto e l'enctype (Senza quest'ultimo non posso recuperare file) --}}
                 <form action="{{route('user.places.update' , $place->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
+                    @method('PATCH')
                     <div class="form-group">
                         <label for="summary">Sommario</label>
                         <input type="text" name="summary" id="summary" class="form-control" value="{{$place['summary']}}">
@@ -59,6 +59,10 @@
                             <label for="amenities-{{$amenity->id}}">{{$amenity->name}}</label>
                             {{-- Se esiste un array con gli elementi old E se i dati combaciano con i dati della tabella tag, ALLORA CHECKED --}}
                             <input type="checkbox" name="amenities[]" id="amenities-{{$amenity->id}}" value="{{$amenity->id}}"
+<<<<<<< Updated upstream
+=======
+                            {{-- {{(in_array($amenity->id, old('amenities'))) ? 'checked' : ''}} --}}
+>>>>>>> Stashed changes
                             {{((is_array(old('amenities')) && in_array($amenity->id, old('amenities')))||($place->amenities->contains($amenity->id))) ? 'checked' : ''}}>
                         @endforeach
 
