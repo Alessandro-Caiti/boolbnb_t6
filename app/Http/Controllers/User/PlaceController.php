@@ -55,6 +55,12 @@ class PlaceController extends Controller
         $data['lat'] = 1;
         $data['long'] = 1;
 
+        if(!isset($data['visible'])) {
+                   $data['visible'] = 0;
+               } else {
+                   $data['visible'] = 1;
+               }
+
         $validator = Validator::make($data, [
             'summary' => 'required|string|max:50',
             'price' => 'required|numeric',
@@ -92,6 +98,7 @@ class PlaceController extends Controller
             $photo->path = $path;
             $photo->save();
         }
+        $place->amenities()->attach($data['amenities']);
 
         return redirect()->route('user.places.show' , $place->id);
     }
@@ -160,7 +167,7 @@ class PlaceController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('user.places.edit')
+            return redirect()->back()
             ->withErrors($validator)
             ->withInput();
         }
@@ -181,7 +188,7 @@ class PlaceController extends Controller
         //     $photo->path = $path;
         //     $photo->save();
         // }
-
+        $place->amenities()->sync($data['amenities']);
         return redirect()->route('user.places.show' , $place->id);
     }
 
@@ -198,7 +205,7 @@ class PlaceController extends Controller
         if ($userId != $place->user_id) {
             abort('404');
         }
-
+        $place->amenities()->detach();
         $place->photo()->delete();
         $place->info()->delete();
         $place->delete();

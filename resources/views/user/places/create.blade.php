@@ -64,10 +64,6 @@
                     <div class="form-group">
                         <h3>Photos</h3>
                         {{-- Ciclo FOREACH per tutte le foto già esistenti nell'array --}}
-                        @foreach ($photos as $photo)
-                            <label for="photos-{{$photo->id}}">{{$photo->name}}</label>
-                            <input type="checkbox" name="photos[]" id="photos-{{$photo->id}}" value="{{$photo->id}}">
-                        @endforeach
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="inputGroupFile01" name="path">
                             <label class="custom-file-label" for="inputGroupFile01">Aggiungi Foto</label>

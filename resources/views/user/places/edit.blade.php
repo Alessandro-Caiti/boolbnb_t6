@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-12">
                 {{-- sezione di gestione errori nel caso di ritorno dalla funzione store --}}
-                {{-- @foreach ($errors->all() as $message)
+                @foreach ($errors->all() as $message)
                     {{$message}}
-                @endforeach --}}
+                @endforeach
                 {{-- Fine sezione --}}
                 {{-- Nel form imposto l'azione, il medoto e l'enctype (Senza quest'ultimo non posso recuperare file) --}}
                 <form action="{{route('user.places.update' , $place->id)}}" method="POST" enctype="multipart/form-data">
@@ -51,6 +51,7 @@
                         <label for="m2">Metri quadri</label>
                         <input type="text" name="m2" id="m2" class="form-control" value="{{$place->info->m2}}">
                     </div>
+
                     <div class="form-group">
                         <h3>Servizi</h3>
                         {{-- ciclo for each per visualizzare tutte i tag presenti nel db, tag-id per il valore nel db, tag name per la comprensione dell'id associato --}}
@@ -58,8 +59,9 @@
                             <label for="amenities-{{$amenity->id}}">{{$amenity->name}}</label>
                             {{-- Se esiste un array con gli elementi old E se i dati combaciano con i dati della tabella tag, ALLORA CHECKED --}}
                             <input type="checkbox" name="amenities[]" id="amenities-{{$amenity->id}}" value="{{$amenity->id}}"
-                            {{(is_array(old('amenities')) && in_array($amenity->id, old('amenities'))) ? 'checked' : ''}}>
+                            {{((is_array(old('amenities')) && in_array($amenity->id, old('amenities')))||($place->amenities->contains($amenity->id))) ? 'checked' : ''}}>
                         @endforeach
+
                     </div>
                     <div class="form-group">
                         <h3>Photos</h3>
