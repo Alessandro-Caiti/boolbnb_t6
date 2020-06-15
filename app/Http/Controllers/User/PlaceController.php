@@ -186,10 +186,6 @@ class PlaceController extends Controller
         //     $photo->path = $path;
         //     $photo->save();
         // }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
         $place->amenities()->sync($data['amenities']);
         return redirect()->route('user.places.show' , $place->id);
     }
@@ -207,10 +203,6 @@ class PlaceController extends Controller
         if ($userId != $place->user_id) {
             abort('404');
         }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
         $place->amenities()->detach();
         $place->photo()->delete();
         $place->info()->delete();
