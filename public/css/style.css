@@ -1,0 +1,42 @@
+header {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo-img img {
+  margin-left: 50px;
+  width: 80px;
+  height: auto;
+}
+
+header .login {
+  margin-right: 50px;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  height: 500px;
+  background-color: green;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  background-color: yellow;
+  justify-content: space-between;
+  text-align: center;
+}
+
+footer .logo-img img {
+  margin-left: 50px;
+  width: 150px;
+  height: auto;
+}
+
+footer h3 {
+  font-size: 40px;
+}
+

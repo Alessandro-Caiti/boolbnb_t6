@@ -1,0 +1,17 @@
+footer {
+  display: flex;
+  width: 100%;
+  background-color: yellow;
+  justify-content: space-between;
+  text-align: center;
+  .logo-img {
+    img {
+      margin-left: 50px;
+      width: 150px;
+      height: auto;
+    }
+  }
+  h3 {
+    font-size: 40px;
+  }
+}
