@@ -10790,8 +10790,8 @@ $(document).ready(function () {
     container: document.querySelector('#input-map')
   });
   var map = L.map('mapid', {
-    scrollWheelZoom: false,
-    zoomControl: false
+    scrollWheelZoom: true,
+    zoomControl: true
   });
   var osmLayer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     minZoom: 1,

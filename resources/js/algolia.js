@@ -7,8 +7,8 @@ $( document ).ready(function() {
     });
 
     var map = L.map('mapid', {
-    scrollWheelZoom: false,
-    zoomControl: false
+    scrollWheelZoom: true,
+    zoomControl: true
   });
 
   var osmLayer = new L.TileLayer(

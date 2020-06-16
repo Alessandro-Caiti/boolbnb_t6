@@ -34,7 +34,6 @@
 
 <style>
   #mapid {height: 300px};
-  #mapid {width: 300px};
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
