@@ -6,14 +6,6 @@ $( document ).ready(function() {
         container: document.querySelector('#input-map')
     });
 
-    var option = {
-        // 'aroundRadius' : 20000,
-        // 'aroundLatLngViaIP' : false,
-        'type' : 'city'
-    };
-
-    placesAutocomplete = placesAutocomplete.configure(option);
-
     var map = L.map('mapid', {
     scrollWheelZoom: true,
     zoomControl: true
@@ -112,5 +104,16 @@ $( document ).ready(function() {
     var featureGroup = L.featureGroup(markers);
     map.fitBounds(featureGroup.getBounds().pad(0.5), {animate: false});
   }
+
+  $('#input-map').on('keyup', function (event) {
+    if (event.key == 'Enter') { // le righe seguenti vengono eseguite solo dopo pressione tasto enter
+        var posizione = $('#input-map').val(); // così prendo il valore dell’input => indirizzo selezionato
+        var mark = markers[0];
+        var lat = mark._latlng.lat;
+        var long = mark._latlng.lng;
+        $('#lat').val(lat);
+        $('#long').val(long);
+    }
+});
 
 });

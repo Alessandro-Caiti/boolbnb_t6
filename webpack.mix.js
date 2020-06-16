@@ -13,4 +13,5 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
 mix.js('resources/js/algolia.js', 'public/js')
+mix.js('resources/js/algoliaForm.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');

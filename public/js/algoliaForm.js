@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10774,10 +10774,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/algolia.js":
-/*!*********************************!*\
-  !*** ./resources/js/algolia.js ***!
-  \*********************************/
+/***/ "./resources/js/algoliaForm.js":
+/*!*************************************!*\
+  !*** ./resources/js/algoliaForm.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10789,12 +10789,6 @@ $(document).ready(function () {
     apiKey: 'd2e56071abd2939d263fd7c896b7fadc',
     container: document.querySelector('#input-map')
   });
-  var option = {
-    // 'aroundRadius' : 20000,
-    // 'aroundLatLngViaIP' : false,
-    'type': 'city'
-  };
-  placesAutocomplete = placesAutocomplete.configure(option);
   var map = L.map('mapid', {
     scrollWheelZoom: true,
     zoomControl: true
@@ -10886,19 +10880,20 @@ $(document).ready(function () {
       animate: false
     });
   }
+
+  $('#input-map').on('keyup', function (event) {
+    if (event.key == 'Enter') {
+      // le righe seguenti vengono eseguite solo dopo pressione tasto enter
+      var posizione = $('#input-map').val(); // così prendo il valore dell’input => indirizzo selezionato
+
+      var mark = markers[0];
+      var lat = mark._latlng.lat;
+      var _long = mark._latlng.lng;
+      $('#lat').val(lat);
+      $('#long').val(_long);
+    }
+  });
 });
-
-/***/ }),
-
-/***/ 1:
-/*!***************************************!*\
-  !*** multi ./resources/js/algolia.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources\js\algolia.js */"./resources/js/algolia.js");
-
 
 /***/ }),
 
@@ -10910,6 +10905,18 @@ module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources
 /***/ (function(module, exports) {
 
 /* (ignored) */
+
+/***/ }),
+
+/***/ 3:
+/*!*******************************************!*\
+  !*** multi ./resources/js/algoliaForm.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources\js\algoliaForm.js */"./resources/js/algoliaForm.js");
+
 
 /***/ })
 

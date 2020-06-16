@@ -52,8 +52,20 @@ class PlaceController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::id();
         $data['slug'] = Str::slug($data['summary'], '-') ;
-        $data['lat'] = 1;
-        $data['long'] = 1;
+
+
+        $address = "1600 Pennsylvania Ave NW Washington DC 20500";
+        $address = str_replace(" ", "+", $address);
+        $region = "USA";
+
+        $json = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&region=$region");
+        $json = json_decode($json);
+        dd($json);
+
+        $lat = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
+        $long = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
+        dd($lat);
+
 
         if(!isset($data['visible'])) {
                    $data['visible'] = 0;
@@ -210,4 +222,6 @@ class PlaceController extends Controller
 
         return redirect()->route('user.places.index');
     }
+
+
 }

@@ -27,13 +27,12 @@
         </div>
 
     <div class="container">
-        <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
         <div id="mapid"></div>
+        <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
     </div>
 
-
 <style>
-  #mapid {height: 300px};
+    #mapid {height: 300px};
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>

@@ -1,6 +1,9 @@
 @extends('layouts.layout')
 
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -18,12 +21,16 @@
                         <input type="text" name="summary" id="summary" class="form-control" value="{{old('summary')}}">
                     </div>
                     <div class="form-group">
-                        <label for="city">Città</label>
-                        <input type="text" name="city" id="city" class="form-control" value="{{old('city')}}">
+                        <label for="form-address">Address*</label>
+                        <input type="search" class="form-control" id="input-map" placeholder="Dove vivi?" />
+                        <div id="mapid"></div>
+                    <div class="form-group">
+                        <label for="form-zip">latitudine</label>
+                        <input type="text" name='lat' class="form-control" id="lat">
                     </div>
                     <div class="form-group">
-                        <label for="address">Indirizzo</label>
-                        <input type="text" name="address" id="address" class="form-control" value="{{old('address')}}">
+                        <label for="form-zip">longitudine</label>
+                        <input type="text" name='long' class="form-control" id="long">
                     </div>
                     <div class="form-group">
                         <label for="price">Prezzo</label>
@@ -83,4 +90,9 @@
             </div>
         </div>
     </div>
+    <style>
+        #mapid {height: 0px};
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    <script src="{{asset('js/algoliaForm.js')}}"></script>
 @endsection
