@@ -21,6 +21,11 @@
           </div>
         </div>
         <div class="tasto">
+          <div class="btn btn-success">
+            Sponsorship
+          </div>
+        </div>
+        <div class="tasto">
           <form class="" action="index.html" method="post">
             <input class="btn btn-danger" type="submit" name="" value="Elimina">
           </form>

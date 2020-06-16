@@ -3,6 +3,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid grey;
 }
 
 header .logo-img img {
@@ -26,7 +27,7 @@ main .appartamenti-manager {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid grey;
 }
 
 main .appartamenti-manager.tasti {
@@ -42,7 +43,6 @@ main .appartamenti-manager img {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid black;
 }
 
 footer {
