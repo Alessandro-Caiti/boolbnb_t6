@@ -59,10 +59,6 @@
                             <label for="amenities-{{$amenity->id}}">{{$amenity->name}}</label>
                             {{-- Se esiste un array con gli elementi old E se i dati combaciano con i dati della tabella tag, ALLORA CHECKED --}}
                             <input type="checkbox" name="amenities[]" id="amenities-{{$amenity->id}}" value="{{$amenity->id}}"
-<<<<<<< Updated upstream
-=======
-                            {{-- {{(in_array($amenity->id, old('amenities'))) ? 'checked' : ''}} --}}
->>>>>>> Stashed changes
                             {{((is_array(old('amenities')) && in_array($amenity->id, old('amenities')))||($place->amenities->contains($amenity->id))) ? 'checked' : ''}}>
                         @endforeach
 
