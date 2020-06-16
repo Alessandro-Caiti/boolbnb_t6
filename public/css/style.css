@@ -19,7 +19,6 @@ header .login {
 main {
   display: flex;
   width: 100%;
-  height: 500px;
 }
 
 main .appartamenti-manager {
@@ -27,7 +26,7 @@ main .appartamenti-manager {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 
 main .appartamenti-manager.tasti {
