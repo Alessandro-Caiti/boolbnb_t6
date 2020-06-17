@@ -2,5 +2,6 @@
     "/js/algolia.js": "/js/algolia.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/style.css": "/css/style.css"
+    "/css/style.css": "/css/style.css",
+    "/css/show.css": "/css/show.css"
 }

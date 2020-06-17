@@ -49,12 +49,12 @@
         </div>
       </main>
 
-      {{-- <footer>
+      <footer>
         <div class="logo-img">
           <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
         </div>
         <h3>TEAM 6</h3>
-      </footer> --}}
+      </footer>
 
 <style>
   #mapid {height: 0px};

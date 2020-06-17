@@ -1,0 +1,57 @@
+header {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+
+header .logo-img img {
+  margin-left: 50px;
+  width: 80px;
+  height: auto;
+}
+
+header .login {
+  margin-right: 50px;
+}
+
+main .appartamenti-manager {
+  width: 100%;
+  height: 600px;
+}
+
+main .appartamenti-manager img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+main .info-apt {
+  margin-top: 30px;
+}
+
+main .servizi ul li {
+  text-align: center;
+  list-style: none;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  background-color: yellow;
+  justify-content: space-between;
+  text-align: center;
+}
+
+footer .logo-img img {
+  margin-left: 50px;
+  width: 150px;
+  height: auto;
+}
+
+footer h3 {
+  font-size: 40px;
+}
+
