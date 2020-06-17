@@ -51,7 +51,18 @@ footer .logo-img img {
   height: auto;
 }
 
-footer h3 {
-  font-size: 40px;
+footer .boolbnb-info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+footer .boolbnb-info .about-us ul li {
+  padding-top: 20px;
+  list-style: none;
+  justify-content: space-between;
+  font-size: 20px;
 }
 
