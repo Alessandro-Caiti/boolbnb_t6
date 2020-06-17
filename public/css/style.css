@@ -47,15 +47,15 @@ main .appartamenti-manager img {
 footer {
   display: flex;
   width: 100%;
-  background-color: yellow;
+  background-color: #f8fafc;
   justify-content: space-between;
   text-align: center;
 }
 
 footer .logo-img img {
   margin-left: 50px;
-  width: 150px;
-  height: auto;
+  width: 80px;
+  height: 80px;
 }
 
 footer .boolbnb-info {

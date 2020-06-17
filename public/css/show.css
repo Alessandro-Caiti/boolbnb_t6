@@ -19,17 +19,23 @@ header .login {
 main .appartamenti-manager {
   width: 100%;
   height: 600px;
+  padding-top: 50px;
 }
 
 main .appartamenti-manager img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  margin: 0 auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main .info-apt {
   margin-top: 30px;
+}
+
+main .info-apt .apt-description p {
+  font-size: 40px;
 }
 
 main .servizi ul li {
@@ -38,17 +44,18 @@ main .servizi ul li {
 }
 
 footer {
+  padding-top: 50px;
   display: flex;
   width: 100%;
-  background-color: yellow;
+  background-color: #f8fafc;
   justify-content: space-between;
   text-align: center;
 }
 
 footer .logo-img img {
   margin-left: 50px;
-  width: 150px;
-  height: auto;
+  width: 80px;
+  height: 80px;
 }
 
 footer .boolbnb-info {
@@ -63,6 +70,14 @@ footer .boolbnb-info .about-us ul li {
   padding-top: 20px;
   list-style: none;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 18px;
+}
+
+footer .boolbnb-info .about-us ul li a {
+  color: black;
+}
+
+footer .boolbnb-info .about-us ul li a .about-us ul li a:hover {
+  color: blue;
 }
 

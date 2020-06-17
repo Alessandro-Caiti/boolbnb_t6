@@ -18,15 +18,16 @@
 footer {
     display: flex;
     width: 100%;
-    background-color: yellow;
+    background-color: #f8fafc;
     justify-content: space-between;
     text-align: center;
+
 
     .logo-img {
         img {
             margin-left: 50px;
-            width: 150px;
-            height: auto;
+            width: 80px;
+            height: 80px;
         }
     }
 
@@ -38,7 +39,8 @@ footer {
         flex-wrap: wrap;
 
 
-        .about-us ul li  {
+        .about-us ul li {
+
             padding-top: 20px;
             list-style: none;
             justify-content: space-between;

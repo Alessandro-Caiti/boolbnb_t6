@@ -47,7 +47,7 @@
                 </div>
                 <div class="row info-apt col-12 justify-content-center">
                     <div class="appartamenti col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <p class="apt-description" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="appartamenti col-6">
@@ -73,31 +73,31 @@
                    <li><a href="#">Informazioni</a></li>
                    <li><a href="#">Diversità</a></li>
                    <li><a href="#">Appartenenza</a></li>
-                   <li><a href="#">Affiddabilià</a></li>
+                   <li><a href="#">Affidabilità</a></li>
                 </ul>
             </div>
             <div class="about-us">
                 <ul>
-                   <li><a href="#">Informazioni</a></li>
-                   <li><a href="#">Diversità</a></li>
-                   <li><a href="#">Appartenenza</a></li>
-                   <li><a href="#">Affiddabilià</a></li>
+                   <li><a href="#">Boolbnb Magazine</a></li>
+                   <li><a href="#">Boolbnb Associates</a></li>
+                   <li><a href="#">Boolbnb Forwork</a></li>
+                   <li><a href="#">Lavora con noi</a></li>
                 </ul>
             </div>
             <div class="about-us">
                 <ul>
-                   <li><a href="#">Informazioni</a></li>
-                   <li><a href="#">Diversità</a></li>
-                   <li><a href="#">Appartenenza</a></li>
-                   <li><a href="#">Affiddabilià</a></li>
+                   <li><a href="#">Diventa Host</a></li>
+                   <li><a href="#">Centrp Risorse</a></li>
+                   <li><a href="#">Community</a></li>
+                   <li><a href="#">Open Homes</a></li>
                 </ul>
             </div>
             <div class="about-us">
                 <ul>
-                   <li><a href="#">Informazioni</a></li>
-                   <li><a href="#">Diversità</a></li>
-                   <li><a href="#">Appartenenza</a></li>
-                   <li><a href="#">Affiddabilià</a></li>
+                   <li><a href="#">Assistenza</a></li>
+                   <li><a href="#">Cancella</a></li>
+                   <li><a href="#">Servizi</a></li>
+                   <li><a href="#">Centro Risorse</a></li>
                 </ul>
             </div>
         </div>
