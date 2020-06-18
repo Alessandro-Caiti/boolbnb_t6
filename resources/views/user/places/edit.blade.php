@@ -18,14 +18,6 @@
                         <input type="text" name="summary" id="summary" class="form-control" value="{{$place['summary']}}">
                     </div>
                     <div class="form-group">
-                        <label for="city">Città</label>
-                        <input type="text" name="city" id="city" class="form-control" value="{{$place['city']}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Indirizzo</label>
-                        <input type="text" name="address" id="address" class="form-control" value="{{$place['address']}}">
-                    </div>
-                    <div class="form-group">
                         <label for="price">Prezzo</label>
                         <input type="text" name="price" id="price" class="form-control" value="{{$place['price']}}">
                     </div>
@@ -64,12 +56,9 @@
 
                     </div>
                     <div class="form-group">
-                        <h3>Photos</h3>
+                        <h3>Photos (da rivedere)</h3>
                         {{-- Ciclo FOREACH per tutte le foto già esistenti nell'array --}}
-                        @foreach ($photos as $photo)
-                            <label for="photos-{{$photo->id}}">{{$photo->name}}</label>
-                            <input type="checkbox" name="photos[]" id="photos-{{$photo->id}}" value="{{$photo->id}}">
-                        @endforeach
+
                         <div class="new-photo">
                             <label for="photo">Aggiungi nuova foto: </label>
                             <input type="file" name="photo" id="photo">

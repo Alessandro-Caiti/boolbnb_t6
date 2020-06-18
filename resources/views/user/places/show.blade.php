@@ -42,55 +42,56 @@
     <main>
         <div class="container">
             <div class="row justify-content-center">
+                @foreach ($place->photo as $photo)
                 <div class="appartamenti-manager col-12">
-                    <img class="apt-mng-img" src="https://wellkeptwallet.com/wp-content/uploads/Apartment-for-Air-BNB-rental.jpg" alt="">
+                    <img class="apt-mng-img" src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}">
                 </div>
+                @endforeach
                 <div class="row info-apt col-12 justify-content-center">
+                    <h2>{{$place->summary}}</h2>
                     <div class="appartamenti col-6">
-                        <p class="apt-description" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p class="apt-description"> {{$place->info->description}}</p>
                     </div>
                     <div class="appartamenti col-6">
                         <div class="servizi">
                             <ul>
-                                <li>wi-fi</li>
-                                <li>servizio in camera</li>
-                                <li>telefono</li>
+                                @foreach ($place->amenities as $amenity)
+                                <li>{{$amenity->name}}</li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
-
-
-                    
-                    {{-- form per contattare proprietario, utilizzato se non si ha lo stesso id del proprietario dell'immobile--}}
-            @if ($place->user_id != Auth::id())
-                @foreach ($errors->all() as $message)
-                    {{$message}}
-                @endforeach
-                <form class="{{route('mail.store')}}" method="POST">
-                    @csrf
-                    @method('POST')
-                    <h2>Contatta {{$place->user->email}}</h2>
-                    <div class="form-group">
-                        <label for="mail">La tua Mail</label>
-                        <input type="email" name="mail" id="mail" class="form-control" value="{{old('mail')}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Testo del messaggio</label>
-                        <textarea name="message" id="message" rows="10" style='min-width:100%'>{{old('message')}}</textarea>
-                    </div>
-                    <input class="btn btn-primary" type="submit" value="Invia Mail">
-                </form>
-            @else
-                @foreach ($mails as $mail)
-                    <div class="<container>">
-                        <h2>{{$mail->mail}}</h2>
-                        <p>{{$mail->message}}</p>
-                    </div>
-                @endforeach
-            @endif
                 </div>
             </div>
+
+
+            {{-- form per contattare proprietario, utilizzato se non si ha lo stesso id del proprietario dell'immobile--}}
+    @if ($place->user_id != Auth::id())
+        @foreach ($errors->all() as $message)
+            {{$message}}
+        @endforeach
+        <form class="{{route('mail.store')}}" method="POST">
+            @csrf
+            @method('POST')
+            <h2>Contatta {{$place->user->email}}</h2>
+            <div class="form-group">
+                <label for="mail">La tua Mail</label>
+                <input type="email" name="mail" id="mail" class="form-control" value="{{old('mail')}}">
+            </div>
+            <div class="form-group">
+                <label for="message">Testo del messaggio</label>
+                <textarea name="message" id="message" rows="10" style='min-width:100%'>{{old('message')}}</textarea>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Invia Mail">
+        </form>
+    @else
+        @foreach ($place->mail as $mail)
+            <div class="<container>">
+                <h2>{{$mail->mail}}</h2>
+                <p>{{$mail->message}}</p>
+            </div>
+        @endforeach
+    @endif
         </div>
     </main>
     <footer>

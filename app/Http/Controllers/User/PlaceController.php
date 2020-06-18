@@ -14,6 +14,7 @@ use App\Place;
 use App\Amenity;
 use App\InfoPlace;
 use App\Photo;
+use App\Mail;
 
 
 class PlaceController extends Controller
@@ -27,9 +28,7 @@ class PlaceController extends Controller
     {
         $id = Auth::id();
         $places = Place::where('user_id' , $id)->get();
-        $photo = Photo::where('place_id' , $place->id)->first();
-
-        return view('user.places.index' compact('places' , 'photo'));
+        return view('user.places.index' ,  compact('places'));
     }
 
     /**
@@ -41,7 +40,6 @@ class PlaceController extends Controller
     {
         $amenities = Amenity::all();
         $photos = Photo::all();
-
         return view('user.places.create', compact('amenities', 'photos'));
     }
 
@@ -56,8 +54,6 @@ class PlaceController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::id();
         $data['slug'] = Str::slug($data['summary'], '-') ;
-        $data['lat'] = 1;
-        $data['long'] = 1;
 
         if(!isset($data['visible'])) {
                    $data['visible'] = 0;
@@ -103,8 +99,6 @@ class PlaceController extends Controller
             $photo->save();
         }
         $place->amenities()->attach($data['amenities']);
-
-        $place->amenities()->attach($data['amenities']);
         return redirect()->route('user.places.show' , $place->id);
     }
 
@@ -117,9 +111,10 @@ class PlaceController extends Controller
     public function show($id)
     {
       $place = Place::findOrFail($id);
-      $infoPlace = InfoPlace::where('place_id' , $id)->first();
-      $mails = Mail::where('place_id' , $id)->get();
-      return view('user.places.show' , compact('place', 'infoPlace' , 'mails'));
+      // $infoPlace = InfoPlace::where('place_id' , $id)->first();
+      // $mails = Mail::where('place_id' , $id)->get();
+      // return view('user.places.show' , compact('place', 'infoPlace' , 'mails'));
+      return view('user.places.show' , compact('place'));
     }
 
     /**
@@ -162,8 +157,6 @@ class PlaceController extends Controller
         $validator = Validator::make($data, [
             'summary' => 'required|string|max:50',
             'price' => 'required|numeric',
-            'address' => 'required|string|max:150',
-            'city' => 'required|string|max:50',
             'rooms' => 'required|numeric',
             'beds' => 'required|numeric',
             'bathrooms' => 'required|numeric',

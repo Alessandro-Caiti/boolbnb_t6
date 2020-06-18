@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="form-address">Indirizzo</label>
-                        <input type="search" class="form-control" id="input-map" placeholder="Dove vivi?" />
+                        <input type="search" class="form-control" name ="address" id="input-map" placeholder="Dove vivi?" />
                         <div id="mapid"></div>
                     <div class="form-group">
                         <label for="form-zip">latitudine</label>
@@ -91,5 +91,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection
