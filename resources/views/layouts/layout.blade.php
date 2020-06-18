@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -90,6 +92,7 @@
           </div>
           <h3>TEAM 6</h3>
         </footer>
-
+        <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+        <script src="{{asset('js/algolia.js')}}"></script>
 </body>
 </html>

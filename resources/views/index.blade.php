@@ -15,11 +15,18 @@
         <div class="logo-img">
           <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
         </div>
-        <div class="research">
-          <input type="search" id="input-map" class="form-control" placeholder="Dove vuoi andare?" />
+        <div class="nav">
+        <div id="mapid" class="invisible"></div>
+        <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
+        <div class="form-group">
+                <label for="form-zip">latitudine</label>
+                <input type="text" name='lat' class="form-control" id="lat">
+      </div>
+            <div class="form-group">
+                <label for="form-zip">longitudine</label>
+                <input type="text" name='long' class="form-control" id="long">
+            </div>
         </div>
-        <input type="text" name='long' id="long">
-        <input type="text" name='lat' id="lat">
         <div class="login">
           <div class="flex-center position-ref full-height">
               @if (Route::has('login'))
@@ -40,14 +47,12 @@
       </header>
 
       <main>
+
         <div class="appartamenti-sponsor">
 
         </div>
         <div class="appartamenti">
 
-        </div>
-        <div class="container">
-          <div id="mapid"></div>
         </div>
       </main>
 
@@ -98,9 +103,6 @@
           </div>
       </footer>
 
-<style>
-  #mapid {height: 0px};
-</style>
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="{{asset('js/algolia.js')}}"></script>
