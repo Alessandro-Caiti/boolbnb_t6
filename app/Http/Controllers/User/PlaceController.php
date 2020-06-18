@@ -25,7 +25,11 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        return view('user.places.index');
+        $id = Auth::id();
+        $places = Place::where('user_id' , $id)->get();
+        $photo = Photo::where('place_id' , $place->id)->first();
+
+        return view('user.places.index' compact('places' , 'photo'));
     }
 
     /**
