@@ -87,7 +87,7 @@
             <div class="about-us">
                 <ul>
                    <li><a href="#">Diventa Host</a></li>
-                   <li><a href="#">Centrp Risorse</a></li>
+                   <li><a href="#">Centro Risorse</a></li>
                    <li><a href="#">Community</a></li>
                    <li><a href="#">Open Homes</a></li>
                 </ul>
