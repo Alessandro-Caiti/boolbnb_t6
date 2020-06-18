@@ -10789,83 +10789,20 @@ $(document).ready(function () {
     apiKey: 'd2e56071abd2939d263fd7c896b7fadc',
     container: document.querySelector('#input-map')
   });
-  var map = L.map('mapid', {
-    scrollWheelZoom: true,
-    zoomControl: true
+  var option = {
+    // 'aroundRadius' : 20000,
+    // 'aroundLatLngViaIP' : false,
+    'type': 'city'
+  };
+  placesAutocomplete = placesAutocomplete.configure(option);
+  $('#input-map').change(function () {
+    var posizione = $('#input-map').val();
+    var mark = markers[0];
+    var lat = mark._latlng.lat;
+    var _long = mark._latlng.lng;
+    $('#lat').val(lat);
+    $('#long').val(_long);
   });
-  var osmLayer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    minZoom: 1,
-    maxZoom: 13,
-    attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-  });
-  var markers = [];
-  map.setView(new L.LatLng(0, 0), 1);
-  map.addLayer(osmLayer);
-  placesAutocomplete.on('suggestions', handleOnSuggestions);
-  placesAutocomplete.on('cursorchanged', handleOnCursorchanged);
-  placesAutocomplete.on('change', handleOnChange);
-  placesAutocomplete.on('clear', handleOnClear);
-
-  function handleOnSuggestions(e) {
-    markers.forEach(removeMarker);
-    markers = [];
-
-    if (e.suggestions.length === 0) {
-      map.setView(new L.LatLng(0, 0), 1);
-      return;
-    }
-
-    e.suggestions.forEach(addMarker);
-    findBestZoom();
-  }
-
-  function handleOnChange(e) {
-    markers.forEach(function (marker, markerIndex) {
-      if (markerIndex === e.suggestionIndex) {
-        markers = [marker];
-        marker.setOpacity(1);
-        findBestZoom();
-      } else {
-        removeMarker(marker);
-      }
-    });
-  }
-
-  function handleOnClear() {
-    map.setView(new L.LatLng(0, 0), 1);
-    markers.forEach(removeMarker);
-  }
-
-  function handleOnCursorchanged(e) {
-    markers.forEach(function (marker, markerIndex) {
-      if (markerIndex === e.suggestionIndex) {
-        marker.setOpacity(1);
-        marker.setZIndexOffset(1000);
-      } else {
-        marker.setZIndexOffset(0);
-        marker.setOpacity(0.5);
-      }
-    });
-  }
-
-  function addMarker(suggestion) {
-    var marker = L.marker(suggestion.latlng, {
-      opacity: .4
-    });
-    marker.addTo(map);
-    markers.push(marker);
-  }
-
-  function removeMarker(marker) {
-    map.removeLayer(marker);
-  }
-
-  function findBestZoom() {
-    var featureGroup = L.featureGroup(markers);
-    map.fitBounds(featureGroup.getBounds().pad(0.5), {
-      animate: false
-    });
-  }
 });
 
 /***/ }),
@@ -10877,7 +10814,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources\js\algolia.js */"./resources/js/algolia.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\progetto team6\boolbnb_t6\resources\js\algolia.js */"./resources/js/algolia.js");
 
 
 /***/ }),

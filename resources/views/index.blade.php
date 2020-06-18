@@ -18,6 +18,8 @@
         <div class="research">
           <input type="search" id="input-map" class="form-control" placeholder="Dove vuoi andare?" />
         </div>
+        <input type="text" name='long' id="long">
+        <input type="text" name='lat' id="lat">
         <div class="login">
           <div class="flex-center position-ref full-height">
               @if (Route::has('login'))
