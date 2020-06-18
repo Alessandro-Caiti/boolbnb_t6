@@ -10877,7 +10877,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb_t6\resources\js\algolia.js */"./resources/js/algolia.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources\js\algolia.js */"./resources/js/algolia.js");
 
 
 /***/ }),

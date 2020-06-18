@@ -73,11 +73,7 @@ footer .boolbnb-info .about-us ul li {
   font-size: 18px;
 }
 
-footer .boolbnb-info .about-us ul li a {
-  color: black;
-}
-
-footer .boolbnb-info .about-us ul li a .about-us ul li a:hover {
-  color: blue;
+footer .boolbnb-info .about-us ul li {
+  color: #484848;
 }
 
