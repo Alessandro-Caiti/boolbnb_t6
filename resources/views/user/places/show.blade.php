@@ -59,6 +59,36 @@
                             </ul>
                         </div>
                     </div>
+
+
+                    
+                    {{-- form per contattare proprietario, utilizzato se non si ha lo stesso id del proprietario dell'immobile--}}
+            @if ($place->user_id != Auth::id())
+                @foreach ($errors->all() as $message)
+                    {{$message}}
+                @endforeach
+                <form class="{{route('mail.store')}}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <h2>Contatta {{$place->user->email}}</h2>
+                    <div class="form-group">
+                        <label for="mail">La tua Mail</label>
+                        <input type="email" name="mail" id="mail" class="form-control" value="{{old('mail')}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Testo del messaggio</label>
+                        <textarea name="message" id="message" rows="10" style='min-width:100%'>{{old('message')}}</textarea>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Invia Mail">
+                </form>
+            @else
+                @foreach ($mails as $mail)
+                    <div class="<container>">
+                        <h2>{{$mail->mail}}</h2>
+                        <p>{{$mail->message}}</p>
+                    </div>
+                @endforeach
+            @endif
                 </div>
             </div>
         </div>

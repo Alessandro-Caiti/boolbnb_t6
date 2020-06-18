@@ -112,8 +112,10 @@ class PlaceController extends Controller
      */
     public function show($id)
     {
-        $place = Place::findOrFail($id);
-        return view('user.places.show' , compact('place'));
+      $place = Place::findOrFail($id);
+      $infoPlace = InfoPlace::where('place_id' , $id)->first();
+      $mails = Mail::where('place_id' , $id)->get();
+      return view('user.places.show' , compact('place', 'infoPlace' , 'mails'));
     }
 
     /**
