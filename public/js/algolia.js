@@ -10886,6 +10886,15 @@ $(document).ready(function () {
       animate: false
     });
   }
+
+  $('#input-map').change(function () {
+    var posizione = $('#input-map').val();
+    var mark = markers[0];
+    var lat = mark._latlng.lat;
+    var _long = mark._latlng.lng;
+    $('#lat').val(lat);
+    $('#long').val(_long);
+  });
 });
 
 /***/ }),

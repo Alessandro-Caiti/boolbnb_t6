@@ -113,4 +113,13 @@ $( document ).ready(function() {
     map.fitBounds(featureGroup.getBounds().pad(0.5), {animate: false});
   }
 
+  $('#input-map').change(function() {
+        var posizione = $('#input-map').val();
+        var mark = markers[0];
+        var lat = mark._latlng.lat;
+        var long = mark._latlng.lng;
+        $('#lat').val(lat);
+        $('#long').val(long);
+});
+
 });

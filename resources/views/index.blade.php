@@ -29,6 +29,13 @@
     <div class="container">
         <div id="mapid"></div>
         <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
+        <div class="form-group">
+            <label for="form-zip">latitudine</label>
+            <input type="text" name='lat' class="form-control" id="lat">
+        </div>
+        <div class="form-group">
+            <label for="form-zip">longitudine</label>
+            <input type="text" name='long' class="form-control" id="long">
     </div>
 
 <style>

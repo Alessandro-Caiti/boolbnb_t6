@@ -10881,17 +10881,13 @@ $(document).ready(function () {
     });
   }
 
-  $('#input-map').on('keyup', function (event) {
-    if (event.key == 'Enter') {
-      // le righe seguenti vengono eseguite solo dopo pressione tasto enter
-      var posizione = $('#input-map').val(); // così prendo il valore dell’input => indirizzo selezionato
-
-      var mark = markers[0];
-      var lat = mark._latlng.lat;
-      var _long = mark._latlng.lng;
-      $('#lat').val(lat);
-      $('#long').val(_long);
-    }
+  $('#input-map').change(function () {
+    var posizione = $('#input-map').val();
+    var mark = markers[0];
+    var lat = mark._latlng.lat;
+    var _long = mark._latlng.lng;
+    $('#lat').val(lat);
+    $('#long').val(_long);
   });
 });
 

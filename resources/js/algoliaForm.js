@@ -105,15 +105,14 @@ $( document ).ready(function() {
     map.fitBounds(featureGroup.getBounds().pad(0.5), {animate: false});
   }
 
-  $('#input-map').on('keyup', function (event) {
-    if (event.key == 'Enter') { // le righe seguenti vengono eseguite solo dopo pressione tasto enter
-        var posizione = $('#input-map').val(); // così prendo il valore dell’input => indirizzo selezionato
+  $('#input-map').change(function() {
+        var posizione = $('#input-map').val();
         var mark = markers[0];
         var lat = mark._latlng.lat;
         var long = mark._latlng.lng;
         $('#lat').val(lat);
         $('#long').val(long);
-    }
 });
+
 
 });
