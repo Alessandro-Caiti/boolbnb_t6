@@ -61,12 +61,19 @@
                             </ul>
                         </div>
                     </div>
-                    <span  id="spanLat">{{$place->lat}}</span>
-                    <span id="spanLong">{{$place->long}}</span>
-                    <input type="search" class="invisible" id="input-map">
-                    <div id="mapid"></div>
+                    <div class="container">
+                        <div id="map-show"></div>
+                        <input type="search" id="input-map" class="form-control invisible" placeholder="Where are we going?" />
+                        <div class="form-group">
+                            <label for="form-zip">latitudine</label>
+                            <input type="text" name='lat' class="form-control invisible" id="lat" value="{{$place->lat}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="form-zip">longitudine</label>
+                            <input type="text" name='long' class="form-control invisible" id="long"value="{{$place->long}}">
+                    </div>
                     <style>
-                        #mapid {height: 200px};
+                        #map-show {height: 400px};
                     </style>
                 </div>
             </div>
@@ -141,5 +148,5 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-    <script src="{{asset('js/algolia.js')}}"></script>
+    <script src="{{asset('js/algoliaShow.js')}}"></script>
 </body>

@@ -10801,15 +10801,13 @@ $(document).ready(function () {
 
   var markers = [];
   var puntatori = [];
-  var lat = $('#spanLat').html();
+  var lat = $('#lat').val();
 
-  var _long = $('#spanLong').html();
+  var _long = $('#long').val();
 
-  var ciao = $('#ciao').val();
   console.log(lat);
   console.log(_long);
-  console.log(ciao);
-  map.setView(new L.LatLng(0, 0), 10);
+  map.setView(new L.LatLng(lat, _long), 10);
   map.addLayer(osmLayer);
   var posizione = L.marker([lat, _long]).addTo(map);
   placesAutocomplete.on('suggestions', handleOnSuggestions);

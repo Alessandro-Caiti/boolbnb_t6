@@ -50,7 +50,7 @@
 
           <div id="mapid"></div>
           <style>
-              #mapid {height: 200px};
+              #mapid {height: 0px};
           </style>
         <div class="appartamenti-sponsor">
 
@@ -106,7 +106,7 @@
               </div>
           </div>
       </footer>
-
+  </body>
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="{{asset('js/algolia.js')}}"></script>

@@ -26,14 +26,12 @@ $( document ).ready(function() {
   var puntatori = [];
 
 
-  var lat = $('#spanLat').html();
-  var long = $('#spanLong').html();
-  var ciao = $('#ciao').val();
+  var lat = $('#lat').val();
+  var long = $('#long').val();
   console.log(lat);
   console.log(long);
-  console.log(ciao);
 
-  map.setView(new L.LatLng(0, 0), 10);
+  map.setView(new L.LatLng(lat, long), 10);
   map.addLayer(osmLayer);
   var posizione = L.marker([lat, long]).addTo(map);
 
