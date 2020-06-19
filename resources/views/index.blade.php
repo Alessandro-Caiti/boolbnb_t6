@@ -16,7 +16,7 @@
           <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
         </div>
         <div class="nav">
-        <div id="mapid" class="invisible"></div>
+
         <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
         <div class="form-group">
                 <label for="form-zip">latitudine</label>
@@ -48,6 +48,10 @@
 
       <main>
 
+          <div id="mapid"></div>
+          <style>
+              #mapid {height: 200px};
+          </style>
         <div class="appartamenti-sponsor">
 
         </div>

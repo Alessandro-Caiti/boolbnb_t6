@@ -61,6 +61,13 @@
                             </ul>
                         </div>
                     </div>
+                    <span  id="spanLat">{{$place->lat}}</span>
+                    <span id="spanLong">{{$place->long}}</span>
+                    <input type="search" class="invisible" id="input-map">
+                    <div id="mapid"></div>
+                    <style>
+                        #mapid {height: 200px};
+                    </style>
                 </div>
             </div>
 
@@ -133,4 +140,6 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    <script src="{{asset('js/algolia.js')}}"></script>
 </body>
