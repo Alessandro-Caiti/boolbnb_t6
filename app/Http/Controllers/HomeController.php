@@ -39,4 +39,9 @@ class HomeController extends Controller
         $places = Place::where('user_id' , $id)->get();
         return view('user.places.index' ,  compact('places'));
     }
+
+    public function search()
+    {
+        
+    }
 }

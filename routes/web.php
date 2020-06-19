@@ -16,6 +16,18 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+
+// Route::get('delete_comment_action/{id}', function($id){
+//
+//     $status_Id = Input::get('status_Id');
+//     print_r($status_Id);
+//     exit();
+//
+//     return Redirect::back();
+// });
+
+
 Route::get('/', function () {
     return view('index');
 });

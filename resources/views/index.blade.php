@@ -13,20 +13,31 @@
     <body>
       <header>
         <div class="logo-img">
-          <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
+            <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
         </div>
         <div class="nav">
 
-        <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
-        <div class="form-group">
+            <input type="search" id="input-map" class="form-control" placeholder="Where are we going?" />
+            <div class="form-group">
                 <label for="form-zip">latitudine</label>
                 <input type="text" name='lat' class="form-control" id="lat">
-      </div>
+            </div>
             <div class="form-group">
                 <label for="form-zip">longitudine</label>
                 <input type="text" name='long' class="form-control" id="long">
             </div>
         </div>
+        {{-- <div class="">
+            form con rotta search
+            bottone submit con rotta search e gli passo lat e long
+
+            https://stackoverflow.com/questions/29814209/getting-the-form-input-value-in-laravel
+
+            <form action="{{{ url("search/$posizione") }}}" method="get">
+                <input type="hidden" name ="status_Id" value="{{$swagger->status_Id}}">
+                <input type="submit" value="Delete">
+            </form>
+        </div> --}}
         <div class="login">
           <div class="flex-center position-ref full-height">
               @if (Route::has('login'))
