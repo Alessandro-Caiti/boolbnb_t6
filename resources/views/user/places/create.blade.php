@@ -25,6 +25,7 @@
                         <label for="form-address">Indirizzo</label>
                         <input type="search" class="form-control" name ="address" id="input-map" placeholder="Dove vivi?" />
                         <div id="mapid"></div>
+                    </div>
                     <div class="form-group">
                         <label for="form-zip">latitudine</label>
                         <input type="text" name='lat' class="form-control" id="lat">
