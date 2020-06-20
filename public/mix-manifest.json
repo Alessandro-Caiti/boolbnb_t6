@@ -4,5 +4,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/style.css": "/css/style.css",
-    "/css/show.css": "/css/show.css"
+    "/css/show.css": "/css/show.css",
+    "/js/search.js": "/js/search.js"
 }

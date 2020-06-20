@@ -14,6 +14,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    // aggiungo la chiave Api personalizzata
+    // 'api_key' => env('API_AUTH', ''),
 
     /*
     |--------------------------------------------------------------------------

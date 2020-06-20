@@ -45,8 +45,9 @@ class HomeController extends Controller
         $data = $request->all();
         $lat = $data['lat'];
         $long = $data['long'];
-
         $places = Place::all();
+        $placesInRange = [];
+
         function distance($lat1, $lon1, $lat2, $lon2) {
             $theta = $lon1 - $lon2;
             $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
@@ -56,26 +57,25 @@ class HomeController extends Controller
             $km = $miles * 1.609344;
             return $km;
             }
-      //       if ($unit == "K") {
-      //       return ($miles * 1.609344);
-      // } else if ($unit == "N") {
-      //     return ($miles * 0.8684);
-      // } else {
-      //     return $miles;
-      // }
 
 
-            foreach ($places as $place) {
-                $placeLat = $place->lat;
-                $placeLong= $place->long;
+        foreach ($places as $place) {
+            $placeLat = $place->lat;
+            $placeLong= $place->long;
 
-                $distanza = distance($lat, $long, $placeLat, $placeLong);
-                return view('search', compact('distanza'));
+            $distanza = distance($lat, $long, $placeLat, $placeLong);
+            $place->distance = $distanza;
+
+            if ($place->distance <= 100) {
+                foreach ($place->photo as $photo) {
+                    $place->path= $photo->path;
+                }
+
+                $placesInRange[] = $place;
             }
-        return view('search' , compact('distanza'));
+        }
+
+        $jsonPlace= json_encode($placesInRange);
+        return view('search', compact('jsonPlace'));
     }
-
-
-
-
 }
