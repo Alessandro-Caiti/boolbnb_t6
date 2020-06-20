@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('placesInRange' , "Api\SearchController@searchPlaces")->name('cerca');
+Route::get('places' , "Api\SearchController@allPlace");
