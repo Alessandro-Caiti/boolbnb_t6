@@ -2,31 +2,47 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Ricerca</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
     <body>
         <input type="hidden" type="text" id="places-lat" value="{{$lat}}">
         <input type="hidden" type="text" id="places-long" value="{{$long}}">
-        <div id="place">
+        <div class="">
+            <input class="form-group" type="number" id="beds" placeholder="Inserisci il numero di letti">
+            <input class="form-group" type="number" id="rooms" placeholder="Inserisci il numero di stanze">
+            <input class="form-group" type="number" id="bathrooms" placeholder="Inserisci il numero di bagni">
 
+            @foreach ($amenities as $amenity)
+                <label for="amenity-{{$amenity->id}}">{{$amenity->name}}</label>
+                <input type="checkbox" id="amenity-{{$amenity->id}}" value="{{$amenity->id}}">
+            @endforeach
 
+            <button id="btn-filter" class="btn btn-primary">Filtra</button>
         </div>
 
 
 
 
-        <script id="places-list-template" type="text/x-handlebars-template">
-        <div>
-            <p>@{{summary}}</p>
-            <p>@{{address}}</p>
-            <p>@{{price}}</p>
-            <img src="{{asset('storage')}}/@{{path}}">  
-        </div>
 
-        </script>
+    @foreach ($placesInRange as $place)
+        <a href="{{route('show' , $place->id)}}">
+            <div>
+                <h2>{{$place->summary}}</h2>
+                <p>{{$place->address}}</p>
+                @foreach ($place->photo as $photo)
+                <div class="appartamenti-manager col-12">
+                    <img class="apt-mng-img" src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}">
+                </div>
+                @endforeach
+            </div>
+        </a>
+    @endforeach
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js" charset="utf-8"></script>
+
+
+
+
         <script src="{{asset('js/search.js')}}" charset="utf-8"></script>
 
 

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>prova index</title>
+        <title>Index Guest</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
         <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>

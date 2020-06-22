@@ -28,9 +28,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Auth::routes();
 
@@ -46,5 +46,8 @@ Route::prefix('user')
         // Route::resource('users' , 'UserController');
     });
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/search', 'HomeController@search')->name('search');
+// Route::get('/home', 'GuestController@index')->name('home');
+Route::get('/search', 'GuestController@search')->name('search');
+// Route::resource('/' , 'GuestController');
+
+Route::get('/show/{id}', 'GuestController@show')->name('show');
