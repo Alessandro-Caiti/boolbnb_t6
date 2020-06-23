@@ -1,44 +1,10 @@
-<html lang="en" dir="ltr">
+@extends('layouts.layout')
 
-<head>
-    <meta charset="utf-8">
-    <title>prova show</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
-    <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+@section('content')
 
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('css/show.css')}}">
-</head>
-
-</html>
 
 <body>
-    <header>
-        <div class="logo-img">
-            <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
-        </div>
-        <div class="research">
-            <input type="search" id="input-map" class="form-control" placeholder="Dove vuoi andare?" />
-        </div>
-        <div class="login">
-            <div class="flex-center position-ref full-height">
-                @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                    <a href="{{ url('/home') }}">Home</a>
-                    @else
-                    <a href="{{ route('login') }}">Login</a>
 
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                    @endif
-                    @endauth
-                </div>
-                @endif
-            </div>
-        </div>
-    </header>
     <main>
         <div class="container">
             <div class="row justify-content-center">
@@ -150,3 +116,5 @@
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
     <script src="{{asset('js/algoliaShow.js')}}"></script>
 </body>
+  
+@endsection

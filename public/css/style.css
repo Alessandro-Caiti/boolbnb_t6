@@ -1,5 +1,4 @@
 header {
-  height: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,8 +15,12 @@ header .login {
   margin-right: 50px;
 }
 
-main {
+header .form-ricerca {
   display: flex;
+  margin-right: 20px;
+}
+
+main {
   width: 100%;
 }
 

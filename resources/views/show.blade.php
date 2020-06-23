@@ -1,44 +1,7 @@
-<html lang="en" dir="ltr">
+@extends('layouts.layout')
 
-<head>
-    <meta charset="utf-8">
-    <title>prova show</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
-    <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
-
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('css/show.css')}}">
-</head>
-
-</html>
-
+@section('content')
 <body>
-    <header>
-        <div class="logo-img">
-            <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
-        </div>
-        <div class="research">
-            <input type="search" id="input-map" class="form-control" placeholder="Dove vuoi andare?" />
-        </div>
-        <div class="login">
-            <div class="flex-center position-ref full-height">
-                @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                    <a href="{{ url('/home') }}">Home</a>
-                    @else
-                    <a href="{{ route('login') }}">Login</a>
-
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                    @endif
-                    @endauth
-                </div>
-                @endif
-            </div>
-        </div>
-    </header>
     <main>
         <div class="container">
             <div class="row justify-content-center">
@@ -65,13 +28,13 @@
                         <div id="map-show"></div>
                         <input type="search" id="input-map" class="form-control invisible" placeholder="Where are we going?" />
                         <div class="form-group">
-                            <label for="form-zip">latitudine</label>
-                            <input type="text" name='lat' class="form-control invisible" id="lat" value="{{$place->lat}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="form-zip">longitudine</label>
-                            <input type="text" name='long' class="form-control invisible" id="long"value="{{$place->long}}">
-                    </div>
+                              <label for="form-zip">latitudine</label>
+                              <input type="text" name='lat' class="form-control invisible" id="lat" value="{{$place->lat}}">
+                          </div>
+                          <div class="form-group">
+                              <label for="form-zip">longitudine</label>
+                              <input type="text" name='long' class="form-control invisible" id="long"value="{{$place->long}}">
+                      </div>
                     <style>
                         #map-show {height: 400px};
                     </style>
@@ -111,45 +74,7 @@
     @endif
         </div>
     </main>
-    <footer>
-        <div class="logo-img">
-          <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
-        </div>
-        <div class="row boolbnb-info">
-            <div class="about-us">
-                <ul>
-                   <li><a href="#">Informazioni</a></li>
-                   <li><a href="#">Diversità</a></li>
-                   <li><a href="#">Appartenenza</a></li>
-                   <li><a href="#">Affidabilità</a></li>
-                </ul>
-            </div>
-            <div class="about-us">
-                <ul>
-                   <li><a href="#">Boolbnb Magazine</a></li>
-                   <li><a href="#">Boolbnb Associates</a></li>
-                   <li><a href="#">Boolbnb Forwork</a></li>
-                   <li><a href="#">Lavora con noi</a></li>
-                </ul>
-            </div>
-            <div class="about-us">
-                <ul>
-                   <li><a href="#">Diventa Host</a></li>
-                   <li><a href="#">Centro Risorse</a></li>
-                   <li><a href="#">Community</a></li>
-                   <li><a href="#">Open Homes</a></li>
-                </ul>
-            </div>
-            <div class="about-us">
-                <ul>
-                   <li><a href="#">Assistenza</a></li>
-                   <li><a href="#">Cancella</a></li>
-                   <li><a href="#">Servizi</a></li>
-                   <li><a href="#">Centro Risorse</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
     <script src="{{asset('js/algoliaShow.js')}}"></script>
 </body>
+@endsection

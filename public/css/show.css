@@ -1,5 +1,4 @@
 header {
-  height: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +13,11 @@ header .logo-img img {
 
 header .login {
   margin-right: 50px;
+}
+
+header .form-ricerca {
+  display: flex;
+  margin-right: 20px;
 }
 
 main .appartamenti-manager {

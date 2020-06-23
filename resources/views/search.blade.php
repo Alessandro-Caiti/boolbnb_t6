@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Ricerca</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    </head>
+@extends('layouts.layout')
+
+@section('content')
+
     <body>
         <input type="hidden" type="text" id="places-lat" value="{{$lat}}">
         <input type="hidden" type="text" id="places-long" value="{{$long}}">
@@ -20,10 +17,6 @@
 
             <button id="btn-filter" class="btn btn-primary">Filtra</button>
         </div>
-
-
-
-
 
     @foreach ($placesInRange as $place)
         <div id="{{$place->id}}">
@@ -45,13 +38,9 @@
 
     @endforeach
 
-
-
-
-
         <script src="{{asset('js/search.js')}}" charset="utf-8"></script>
 
 
     </body>
 
-</html>
+@endsection
