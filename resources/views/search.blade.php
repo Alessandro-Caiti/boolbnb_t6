@@ -15,6 +15,7 @@
                 @endforeach
 
                 <button id="btn-filter" class="btn btn-primary">Filtra</button>
+                <button id="btn-clear" class="btn btn-secondary">Reset Filtro</button>
             </div>
         </div>
         <div class="">

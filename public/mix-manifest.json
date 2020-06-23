@@ -1,5 +1,6 @@
 {
     "/js/algolia.js": "/js/algolia.js",
+    "/js/algoliaForm.js": "/js/algoliaForm.js",
     "/js/algoliaShow.js": "/js/algoliaShow.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
