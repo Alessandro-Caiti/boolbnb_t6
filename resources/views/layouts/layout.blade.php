@@ -77,6 +77,25 @@
                         @endguest
                     </ul>
                 </div>
+                <div class="nav">
+                    <form action="{{route('search')}}" method="post">
+                        @csrf
+                        @method('GET')
+                        <div class="form-group">
+                            <input type="search" class="form-control" name ="search" id="input-map" placeholder="Dove andiamo?" />
+                            <div class="invisible" id="mapid"></div>
+                        </div>
+                        <div class="form-group invisible">
+                            <label for="form-zip">latitudine</label>
+                            <input type="text" name='lat' class="form-control" id="lat">
+                        </div>
+                        <div class="form-group invisible">
+                            <label for="form-zip">longitudine</label>
+                            <input type="text" name='long' class="form-control" id="long">
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="Cerca">
+                    </form>
+                </div>
             </div>
         </nav>
     </div>

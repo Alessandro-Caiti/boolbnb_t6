@@ -30,12 +30,11 @@ class SearchController extends Controller
             return $km;
             }
 
-
         foreach ($places as $place) {
             $placeLat = $place->lat;
             $placeLong= $place->long;
-
             $distanza = distance($lat, $long, $placeLat, $placeLong);
+            
             $place->distance = $distanza;
             $place->info = $place->info;
             $place->amenities = $place->amenities;

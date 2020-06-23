@@ -8,10 +8,11 @@
     <body>
         <input type="hidden" type="text" id="places-lat" value="{{$lat}}">
         <input type="hidden" type="text" id="places-long" value="{{$long}}">
-        <div class="">
-            <input class="form-group" type="number" id="beds" placeholder="Inserisci il numero di letti">
-            <input class="form-group" type="number" id="rooms" placeholder="Inserisci il numero di stanze">
-            <input class="form-group" type="number" id="bathrooms" placeholder="Inserisci il numero di bagni">
+        <div class="form-control">
+            <input class="form-group" type="number" id="beds" placeholder="Nr. letti">
+            <input class="form-group" type="number" id="rooms" placeholder="Nr. stanze">
+            <input class="form-group" type="number" id="bathrooms" placeholder="Nr. bagni">
+            <input class="form-group" type="number" id="km" placeholder="Raggio in Km">
 
             @foreach ($amenities as $amenity)
                 <label for="amenity-{{$amenity->id}}">{{$amenity->name}}</label>
@@ -19,6 +20,7 @@
             @endforeach
 
             <button id="btn-filter" class="btn btn-primary">Filtra</button>
+            <button id="btn-clear" class="btn btn-secondary"> Reset Filtri </button>
         </div>
 
 
@@ -26,7 +28,7 @@
 
 
     @foreach ($placesInRange as $place)
-        <div id="{{$place->id}}">
+        <div id="{{$place->id}}" class="places">
             <a href="{{route('show' , $place->id)}}">
                 <div>
                     <h2>{{$place->summary}}</h2>
