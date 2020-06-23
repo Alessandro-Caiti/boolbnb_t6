@@ -70,7 +70,8 @@ class PlaceController extends Controller
             'beds' => 'required|numeric',
             'bathrooms' => 'required|numeric',
             'm2' => 'numeric',
-            'description' => 'required'
+            'description' => 'required',
+            'path' => 'required'
         ]);
 
         if ($validator->fails()) {
