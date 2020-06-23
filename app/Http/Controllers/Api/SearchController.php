@@ -37,6 +37,8 @@ class SearchController extends Controller
 
             $distanza = distance($lat, $long, $placeLat, $placeLong);
             $place->distance = $distanza;
+            $place->info = $place->info;
+            $place->amenities = $place->amenities;
 
             if ($place->distance <= 100) {
                 foreach ($place->photo as $photo) {

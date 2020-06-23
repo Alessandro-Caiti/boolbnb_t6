@@ -15,7 +15,7 @@
 
             @foreach ($amenities as $amenity)
                 <label for="amenity-{{$amenity->id}}">{{$amenity->name}}</label>
-                <input type="checkbox" id="amenity-{{$amenity->id}}" value="{{$amenity->id}}">
+                <input class="check-amenity" type="checkbox" id="amenity-{{$amenity->id}}" value="{{$amenity->id}}">
             @endforeach
 
             <button id="btn-filter" class="btn btn-primary">Filtra</button>
@@ -26,17 +26,23 @@
 
 
     @foreach ($placesInRange as $place)
-        <a href="{{route('show' , $place->id)}}">
-            <div>
-                <h2>{{$place->summary}}</h2>
-                <p>{{$place->address}}</p>
-                @foreach ($place->photo as $photo)
-                <div class="appartamenti-manager col-12">
-                    <img class="apt-mng-img" src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}">
+        <div id="{{$place->id}}">
+            <a href="{{route('show' , $place->id)}}">
+                <div>
+                    <h2>{{$place->summary}}</h2>
+                    <p>{{$place->address}}</p>
+                    @foreach ($place->photo as $photo)
+                    <div class="appartamenti-manager col-12">
+                        <img class="apt-mng-img" src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}">
+                    </div>
+                    @endforeach
+                    @foreach ($place->amenities as $amenity)
+                        <p class="amenities" data-amenities="{{$amenity->id}}">{{$amenity->name}}</p>
+                    @endforeach
                 </div>
-                @endforeach
-            </div>
-        </a>
+            </a>
+        </div>
+
     @endforeach
 
 
