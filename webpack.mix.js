@@ -17,4 +17,5 @@ mix.js('resources/js/search.js', 'public/js')
 mix.js('resources/js/algoliaShow.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/style.scss', 'public/css')
+    .sass('resources/sass/welcome.scss', 'public/css')
     .sass('resources/sass/show.scss', 'public/css');
