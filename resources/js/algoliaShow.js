@@ -26,8 +26,8 @@ $( document ).ready(function() {
   var puntatori = [];
 
 
-  var lat = $('#lat').val();
-  var long = $('#long').val();
+  var lat = $('#lat-show').val();
+  var long = $('#long-show').val();
   console.log(lat);
   console.log(long);
 

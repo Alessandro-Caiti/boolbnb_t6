@@ -14,7 +14,7 @@
   <body>
     <main>
       <h1>Team 6 presents:</h1>
-      <button class="enjoy" type="submit" name="button">Enjoy!</button>
+        <a href="{{route('home')}}"><button class="enjoy" type="submit" name="button">Enjoy!</button></a>
     </main>
   </body>
 </html>

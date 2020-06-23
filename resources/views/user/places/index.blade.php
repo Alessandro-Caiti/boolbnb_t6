@@ -1,12 +1,11 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
-    @php
-    @endphp
+<main>
+    <div class="container">
     @foreach ($places as $place)
         @foreach ($place->photo as $photo)
-    <div class="row justify-content-center">
+        <div class="row justify-content-center">
         <div class="appartamenti-manager col-4">
             <img class="apt-mng-img" src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}">
         </div>
@@ -35,5 +34,6 @@
         </div>
     </div>
     @endforeach
-</div>
+    </div>
+    </main>
 @endsection

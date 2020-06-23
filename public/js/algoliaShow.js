@@ -10801,9 +10801,9 @@ $(document).ready(function () {
 
   var markers = [];
   var puntatori = [];
-  var lat = $('#lat').val();
+  var lat = $('#lat-show').val();
 
-  var _long = $('#long').val();
+  var _long = $('#long-show').val();
 
   console.log(lat);
   console.log(_long);
@@ -10918,7 +10918,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\progetto team6\boolbnb_t6\resources\js\algoliaShow.js */"./resources/js/algoliaShow.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources\js\algoliaShow.js */"./resources/js/algoliaShow.js");
 
 
 /***/ })
