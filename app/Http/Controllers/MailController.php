@@ -1,8 +1,18 @@
 <?php
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-Use App\Mail;
+use Illuminate\Support\Str;
+
+use App\User;
+use App\Place;
+use App\Amenity;
+use App\InfoPlace;
+use App\Photo;
+use App\Mail;
 class MailController extends Controller
 {
     /**
@@ -33,18 +43,18 @@ class MailController extends Controller
     {
         $data = $request->all();
         $validator = Validator::make($data, [
-            'email' => 'required',
+            'mail' => 'required',
             'message' => 'required|string',
         ]);
         if ($validator->fails()) {
-            return redirect()->route('user.places.create')
+            return redirect()->back()
             ->withErrors($validator)
             ->withInput();
         }
         $mail = new Mail;
         $mail->fill($data);
         $mail->save();
-        return->redirect()->back();
+        return redirect()->back();
     }
     /**
      * Display the specified resource.

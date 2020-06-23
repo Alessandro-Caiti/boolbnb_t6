@@ -84,7 +84,7 @@
         @foreach ($errors->all() as $message)
             {{$message}}
         @endforeach
-        <form class="{{route('mail.store')}}" method="POST">
+        <form action="{{route('mail.store')}}" method="post">
             @csrf
             @method('POST')
             <h2>Contatta {{$place->user->email}}</h2>
@@ -95,6 +95,9 @@
             <div class="form-group">
                 <label for="message">Testo del messaggio</label>
                 <textarea name="message" id="message" rows="10" style='min-width:100%'>{{old('message')}}</textarea>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="place_id" id="place_id" class="form-control" value="{{$place->id}}">
             </div>
             <input class="btn btn-primary" type="submit" value="Invia Mail">
         </form>
