@@ -1,22 +1,36 @@
 @extends('layouts.layout')
 @section('content')
     <main>
-        <div class="">
+        <div class="my-100">
             <input type="hidden" type="text" id="places-lat" value="{{$lat}}">
             <input type="hidden" type="text" id="places-long" value="{{$long}}">
-            <div class="">
-                <input class="form-group" type="number" id="beds" placeholder="Inserisci il numero di letti">
-                <input class="form-group" type="number" id="rooms" placeholder="Inserisci il numero di stanze">
-                <input class="form-group" type="number" id="bathrooms" placeholder="Inserisci il numero di bagni">
-                <input class="form-group" type="number" id="km" value='20' placeholder="Ricerca per Km (default 20 km)">
-
-                @foreach ($amenities as $amenity)
-                    <label for="amenity-{{$amenity->id}}">{{$amenity->name}}</label>
-                    <input class="check-amenity" type="checkbox" id="amenity-{{$amenity->id}}" value="{{$amenity->id}}">
-                @endforeach
-
-                <button id="btn-filter" class="btn btn-primary">Filtra</button>
-                <button id="btn-clear" class="btn btn-secondary">Reset Filtro</button>
+            <div class="my-filter-container">
+                <div class="">
+                    <div class="">
+                        <input class="form-group my-filter" type="number" id="beds" placeholder="Quanti letti?">
+                        <input class="form-group my-filter" type="number" id="rooms" placeholder="Quante stanze?">
+                    </div>
+                    <div class="">
+                        <input class="form-group my-filter" type="number" id="bathrooms" placeholder="Quanti bagni?">
+                        <input class="form-group my-filter" type="number" id="km" placeholder="Raggio in Km?">
+                    </div>
+                </div>
+                <div class="">
+                    @foreach ($amenities as $amenity)
+                        <div class="">
+                            <label for="amenity-{{$amenity->id}}">{{$amenity->name}}</label>
+                            <input class="check-amenity" type="checkbox" id="amenity-{{$amenity->id}}" value="{{$amenity->id}}">
+                        </div>
+                    @endforeach
+                </div>
+                <div class="">
+                    <div class="">
+                        <button id="btn-filter" class="btn btn-primary">Filtra</button>
+                    </div>
+                    <div class="">
+                        <button id="btn-clear" class="btn btn-secondary">Reset Filtro</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="">

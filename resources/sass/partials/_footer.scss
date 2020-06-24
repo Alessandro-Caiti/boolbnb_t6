@@ -15,17 +15,20 @@
 //     font-size: 40px;
 //   }
 // }
+
+.my-border{
+    border-top: 1px solid lightgrey;
+}
+
 footer {
     display: flex;
     width: 100%;
     background-color: #f8fafc;
     justify-content: space-between;
     text-align: center;
-
-
+    padding-top: 30px;
     .logo-img {
         img {
-            margin-left: 50px;
             width: 80px;
             height: 80px;
         }

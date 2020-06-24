@@ -1,16 +1,30 @@
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  border-bottom: 1px solid grey;
-  .logo-img {
-    img {
-      margin-left: 50px;
-      width: 80px;
-      height: auto;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 30px;
+  }
+  // .login {
+  //   margin-right: 50px;
+  // }
+
+.logo-img {
+  img {
+    width: 80px;
+    height: auto;
+  }
+}
+
+.my-search {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .bottone {
+        height: calc(1.6em + 0.75rem + 2px);
+        margin-left: 20px;
     }
-  }
-  .login {
-    margin-right: 50px;
-  }
+    // #input-map {
+    //     width: 300px;
+    // }
 }

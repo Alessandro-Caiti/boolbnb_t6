@@ -10918,7 +10918,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources\js\algoliaShow.js */"./resources/js/algoliaShow.js");
+module.exports = __webpack_require__(/*! D:\MAMP\htdocs\progettibool\progetto_team_6\boolbnb_t6\resources\js\algoliaShow.js */"./resources/js/algoliaShow.js");
 
 
 /***/ })

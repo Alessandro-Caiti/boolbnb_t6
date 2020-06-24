@@ -1,18 +1,25 @@
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 30px;
 }
 
-header .logo-img img {
-  margin-left: 50px;
+.logo-img img {
   width: 80px;
   height: auto;
 }
 
-header .login {
-  margin-right: 50px;
+.my-search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.my-search .bottone {
+  height: calc(1.6em + 0.75rem + 2px);
+  margin-left: 20px;
 }
 
 main {
@@ -43,16 +50,30 @@ main .appartamenti-manager img {
      object-fit: contain;
 }
 
+.my-100 {
+  width: 100%;
+}
+
+.my-filter-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.my-border {
+  border-top: 1px solid lightgrey;
+}
+
 footer {
   display: flex;
   width: 100%;
   background-color: #f8fafc;
   justify-content: space-between;
   text-align: center;
+  padding-top: 30px;
 }
 
 footer .logo-img img {
-  margin-left: 50px;
   width: 80px;
   height: 80px;
 }
