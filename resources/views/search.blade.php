@@ -8,6 +8,7 @@
                 <input class="form-group" type="number" id="beds" placeholder="Inserisci il numero di letti">
                 <input class="form-group" type="number" id="rooms" placeholder="Inserisci il numero di stanze">
                 <input class="form-group" type="number" id="bathrooms" placeholder="Inserisci il numero di bagni">
+                <input class="form-group" type="number" id="km" value='20' placeholder="Ricerca per Km (default 20 km)">
 
                 @foreach ($amenities as $amenity)
                     <label for="amenity-{{$amenity->id}}">{{$amenity->name}}</label>
