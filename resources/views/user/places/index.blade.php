@@ -2,6 +2,9 @@
 
 @section('content')
 <main>
+    <div class="">
+        <a class="btn btn-primary" href="{{route('user.places.create')}}">Inserisci una nuova casa</a> 
+    </div>
     <div class="container">
     @foreach ($places as $place)
         @foreach ($place->photo as $photo)

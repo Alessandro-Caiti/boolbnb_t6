@@ -65,7 +65,6 @@ class PlaceController extends Controller
             'summary' => 'required|string|max:50',
             'price' => 'required|numeric',
             'address' => 'required|string|max:150',
-            'city' => 'required|string|max:50',
             'rooms' => 'required|numeric',
             'beds' => 'required|numeric',
             'bathrooms' => 'required|numeric',

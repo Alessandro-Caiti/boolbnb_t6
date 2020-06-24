@@ -24,7 +24,7 @@
 </head>
 <body>
   <header>
-    <a class="navbar-brand" href="{{ url('/') }}">
+    <a class="navbar-brand" href="{{ url('/home') }}">
         {{-- {{ config('app.name', 'Laravel') }} --}}
         <div class="logo-img">
           <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
@@ -63,6 +63,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('user.places.index')}}">Dashboard</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -72,6 +73,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
                                 </div>
                             </li>
                         @endguest
@@ -86,12 +88,10 @@
                             <div class="invisible" id="mapid"></div>
                         </div>
                         <div class="form-group invisible">
-                            <label for="form-zip">latitudine</label>
-                            <input type="text" name='lat' class="form-control" id="lat">
+                            <input type="hidden" name='lat' class="form-control" id="lat">
                         </div>
                         <div class="form-group invisible">
-                            <label for="form-zip">longitudine</label>
-                            <input type="text" name='long' class="form-control" id="long">
+                            <input type="hidden" name='long' class="form-control" id="long">
                         </div>
                         <input class="btn btn-primary" type="submit" value="Cerca">
                     </form>
@@ -105,7 +105,7 @@
 
         <footer>
             <div class="logo-img">
-              <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
+             <a href="{{ url('/home')}}"><img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo"></a>
             </div>
             <div class="row boolbnb-info">
                 <div class="about-us">

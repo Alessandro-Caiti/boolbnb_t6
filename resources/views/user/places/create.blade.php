@@ -41,21 +41,17 @@
                                 <input type="text" name="summary" id="summary" class="form-control" value="{{old('summary')}}">
                             </div>
                             <div class="form-group">
-                                <label for="city">Città</label>
-                                <input type="text" name="city" id="city" class="form-control" value="{{old('city')}}">
-                            </div>
-                            <div class="form-group">
                                 <label for="form-address">Indirizzo</label>
                                 <input type="search" class="form-control" name ="address" id="input-map" placeholder="Dove vivi?" />
                                 <div id="mapid"></div>
                             </div>
-                            <div class="form-group">
-                                <label for="form-zip">latitudine</label>
-                                <input type="text" name='lat' class="form-control" id="lat">
+                            <div class="form-group invisible">
+                                {{-- <label for="form-zip">latitudine</label> --}}
+                                <input type="hidden" name='lat' class="form-control" id="lat">
                             </div>
-                            <div class="form-group">
-                                <label for="form-zip">longitudine</label>
-                                <input type="text" name='long' class="form-control" id="long">
+                            <div class="form-group invisible">
+                                {{-- <label for="form-zip">longitudine</label> --}}
+                                <input type="hidden" name='long' class="form-control" id="long">
                             </div>
                             <div class="form-group">
                                 <label for="price">Prezzo</label>
@@ -108,6 +104,7 @@
                                 </div>
                             </div>
                             <input class="btn btn-primary" type="submit" value="Invia Dati">
+                            <a class="btn btn-danger" href="{{route('user.places.index')}}">Torna indietro senza salvare</a>
                         </form>
                     </div>
                 </div>

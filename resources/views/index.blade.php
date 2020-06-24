@@ -6,11 +6,9 @@
           <style>
               #mapid {height: 0px};
           </style>
-        <div class="appartamenti-sponsor">
 
-        </div>
         <div class="appartamenti">
-
+            <h1>aggiungere foreach appartamenti ORDINATI per data</h1>
         </div>
       </main>
 
