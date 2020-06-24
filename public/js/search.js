@@ -95,11 +95,14 @@
 
 $(document).ready(function () {
   $('#btn-filter').on('click', function () {
+    console.log('click collegato');
     var beds = $('#beds').val();
     var rooms = $('#rooms').val();
     var bathrooms = $('#bathrooms').val();
     var km = $('#km').val();
-    var amenitiesfilter = amenityFilter();
+    var amenitiesfilter = [];
+    amenitiesfilter = amenityFilter();
+    console.log('servizi filtrati ' + amenitiesfilter);
     $.ajax({
       url: "http://127.0.0.1:8000/api/placesInRange",
       method: "GET",
@@ -109,9 +112,9 @@ $(document).ready(function () {
       },
       success: function success(data) {
         var risultati = data;
-        var amenitiesInPlace = [];
 
         for (var i = 0; i < risultati.length; i++) {
+          var amenitiesInPlace = [];
           var risultato = risultati[i];
 
           if (risultato.distance > km) {
@@ -134,6 +137,7 @@ $(document).ready(function () {
             var amenity = parseInt($(this).data('amenities'));
             amenitiesInPlace.push(amenity);
           });
+          console.log('servizi in casa: ' + amenitiesInPlace);
 
           for (var x = 0; x < amenitiesfilter.length; x++) {
             var check = amenitiesInPlace.includes(amenitiesfilter[x]);

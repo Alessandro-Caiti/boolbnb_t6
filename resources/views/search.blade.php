@@ -20,7 +20,7 @@
         </div>
         <div class="">
             @foreach ($placesInRange as $place)
-                <div id="{{$place->id}}">
+                <div id="{{$place->id}}" class='places'>
                     <a href="{{route('show' , $place->id)}}">
                         <div>
                             <h2>{{$place->summary}}</h2>

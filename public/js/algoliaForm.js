@@ -10782,6 +10782,8 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 $(document).ready(function () {
+  console.log('form collegato');
+
   var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
   var placesAutocomplete = places({
@@ -10789,7 +10791,7 @@ $(document).ready(function () {
     apiKey: 'd2e56071abd2939d263fd7c896b7fadc',
     container: document.querySelector('#address')
   });
-  var map = L.map('mapid', {
+  var map = L.map('map-form', {
     scrollWheelZoom: true,
     zoomControl: true
   });
@@ -10869,13 +10871,13 @@ $(document).ready(function () {
     });
   }
 
-  $('#input-map').change(function () {
-    var posizione = $('#input-map').val();
+  $('#address').change(function () {
+    var posizione = $('#address').val();
     var mark = markers[0];
     var lat = mark._latlng.lat;
     var _long = mark._latlng.lng;
-    $('#lat').val(lat);
-    $('#long').val(_long);
+    $('#lat-form').val(lat);
+    $('#long-form').val(_long);
   });
 });
 
