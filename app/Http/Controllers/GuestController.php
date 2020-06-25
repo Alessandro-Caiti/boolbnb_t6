@@ -26,7 +26,7 @@ class GuestController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $places = Place::where('user_id' , $id)->get();
+        $places = Place::all();
         return view('index' ,  compact('places'));
     }
 

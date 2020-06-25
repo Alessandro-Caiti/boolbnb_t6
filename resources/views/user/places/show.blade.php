@@ -71,7 +71,6 @@
                             @method('DELETE')
                             <input class="btn btn-danger" type="submit" value="Cancella Mail">
                         </form>
-
                     </div>
             @endforeach
             </div>

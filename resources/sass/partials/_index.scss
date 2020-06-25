@@ -1,0 +1,14 @@
+.index-appartamenti {
+    width: 100%;
+    .index-place-container {
+        width: 100%;
+        display: flex;
+        .index-place-foto {
+            width: 50%;
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
