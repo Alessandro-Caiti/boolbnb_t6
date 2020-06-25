@@ -22,13 +22,17 @@ header {
   margin-left: 20px;
 }
 
-main .appartamenti-manager {
+main .my-show-container {
+  padding-top: 20px;
+}
+
+main .appartamenti-show {
   width: 100%;
   height: 600px;
   padding-top: 50px;
 }
 
-main .appartamenti-manager img {
+main .appartamenti-show img {
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -44,42 +48,17 @@ main .info-apt .apt-description p {
   font-size: 40px;
 }
 
-main .servizi ul li {
-  text-align: center;
-  list-style: none;
-}
-
-footer {
-  padding-top: 50px;
+main .servizi {
   display: flex;
-  width: 100%;
-  background-color: #f8fafc;
-  justify-content: space-between;
-  text-align: center;
-}
-
-footer .logo-img img {
-  margin-left: 50px;
-  width: 80px;
-  height: 80px;
-}
-
-footer .boolbnb-info {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
-footer .boolbnb-info .about-us ul li {
-  padding-top: 20px;
-  list-style: none;
-  justify-content: space-between;
-  font-size: 18px;
+main .my-message-form {
+  padding-bottom: 20px;
 }
 
-footer .boolbnb-info .about-us ul li {
-  color: #484848;
+main .my-message-container {
+  border-top: 1px solid lightgray;
+  padding-top: 8px;
 }
 

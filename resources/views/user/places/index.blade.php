@@ -8,16 +8,18 @@
             <a class="btn btn-primary" href="{{route('user.places.create')}}">Inserisci una nuova casa</a>
         </div>
     @foreach ($places as $place)
-        <div class="row justify-content-center">
-            @foreach ($place->photo as $photo)
-            <div class="appartamenti-manager col-4">
-                <img class="apt-mng-img" src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}">
+        <div class="my-dash-container">
+            <div class="my-dash-flex">
+                @foreach ($place->photo as $photo)
+                <div class="appartamenti-manager col-6">
+                    <img class="apt-mng-img" src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}">
+                </div>
+            @endforeach
+                <div class="appartamenti-manager col-6">
+                    <h2>{{$place->summary}}</h2>
+                </div>
             </div>
-        @endforeach
-            <div class="appartamenti-manager col-4">
-                <h2>{{$place->summary}}</h2>
-            </div>
-            <div class="appartamenti-manager tasti col-4">
+            <div class="my-tasti">
                 <div class="tasto">
                     {{-- <a class="btn btn-primary" href="{{route('admin.pages.show', $page->id)}}">Visualizza</a> --}}
                     <a class="btn btn-primary" href="{{route('user.places.show', $place->id)}}">Visualizza</a>
@@ -37,6 +39,7 @@
                 </div>
             </div>
         </div>
+
     @endforeach
     </div>
     </main>

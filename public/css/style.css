@@ -27,27 +27,44 @@ main {
   width: 100%;
 }
 
-main .appartamenti-manager {
-  height: 280px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid grey;
+main .my-show-container {
+  padding-top: 20px;
 }
 
-main .appartamenti-manager.tasti {
-  flex-direction: column;
+main .appartamenti-show {
+  width: 100%;
+  height: 600px;
+  padding-top: 50px;
 }
 
-main .appartamenti-manager .tasto {
+main .appartamenti-show img {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main .info-apt {
   margin-top: 30px;
 }
 
-main .appartamenti-manager img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+main .info-apt .apt-description p {
+  font-size: 40px;
+}
+
+main .servizi {
+  display: flex;
+  justify-content: center;
+}
+
+main .my-message-form {
+  padding-bottom: 20px;
+}
+
+main .my-message-container {
+  border-top: 1px solid lightgray;
+  padding-top: 8px;
 }
 
 .my-100 {
@@ -64,6 +81,41 @@ main .appartamenti-manager img {
   padding: 30px 0;
   display: flex;
   justify-content: center;
+}
+
+.my-dash-container {
+  padding-top: 20px;
+}
+
+.my-dash-flex {
+  display: flex;
+  min-height: 300px;
+  justify-content: space-around;
+}
+
+.appartamenti-manager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.appartamenti-manager img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.my-tasti {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.my-tasti .tasto {
+  margin-top: 30px;
 }
 
 .my-border {
