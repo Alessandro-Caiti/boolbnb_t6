@@ -66,6 +66,12 @@
                     <div class="my-message-container">
                         <h4>Nuovo messaggio da: {{$mail->mail}}</h4>
                         <p>{{$mail->message}}</p>
+                        <form action={{route("mail.destroy" , $mail->id)}} method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input class="btn btn-danger" type="submit" value="Cancella Mail">
+                        </form>
+
                     </div>
             @endforeach
             </div>
