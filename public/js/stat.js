@@ -81,113 +81,47 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/search.js":
-/*!********************************!*\
-  !*** ./resources/js/search.js ***!
-  \********************************/
+/***/ "./resources/js/stat.js":
+/*!******************************!*\
+  !*** ./resources/js/stat.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 $(document).ready(function () {
-  $('#btn-filter').on('click', function () {
-    console.log('click collegato');
-    var beds = $('#beds').val();
-    var rooms = $('#rooms').val();
-    var bathrooms = $('#bathrooms').val();
-    var km = $('#km').val();
-    var amenitiesfilter = [];
-    amenitiesfilter = amenityFilter();
-    console.log('servizi filtrati ' + amenitiesfilter);
-    $.ajax({
-      url: "http://127.0.0.1:8000/api/placesInRange",
-      method: "GET",
-      data: {
-        lat: $('#places-lat').val(),
-        "long": $('#places-long').val()
-      },
-      success: function success(data) {
-        var risultati = data;
+  var _$$ajax;
 
-        for (var i = 0; i < risultati.length; i++) {
-          var amenitiesInPlace = [];
-          var risultato = risultati[i];
-
-          if (risultato.distance > km) {
-            $('#' + risultato.id).hide();
-          }
-
-          if (risultato.info.beds < beds) {
-            $('#' + risultato.id).hide();
-          }
-
-          if (risultato.info.rooms < rooms) {
-            $('#' + risultato.id).hide();
-          }
-
-          if (risultato.info.bathrooms < bathrooms) {
-            $('#' + risultato.id).hide();
-          }
-
-          $('#' + risultato.id).find('.amenities').each(function () {
-            var amenity = parseInt($(this).data('amenities'));
-            amenitiesInPlace.push(amenity);
-          });
-          console.log('servizi in casa: ' + amenitiesInPlace);
-
-          for (var x = 0; x < amenitiesfilter.length; x++) {
-            var check = amenitiesInPlace.includes(amenitiesfilter[x]);
-
-            if (check === false) {
-              $('#' + risultato.id).hide();
-            }
-          }
-        }
-      },
-      error: function error() {
-        alert("E' avvenuto un errore. ");
-      }
-    });
-
-    function amenityFilter() {
-      // Funzione che crea un array filters inserendo i valori delle checkbox che sono stati cliccati dall'utente
-      var filters = [];
-      $('.check-amenity').each(function () {
-        if ($(this).prop('checked') == true) {
-          filters.push(parseInt($(this).val()));
-        }
-      });
-      return filters;
-    }
-
-    ;
-  });
-  $('#btn-clear').on('click', function () {
-    $('#beds').val('');
-    $('#rooms').val('');
-    $('#bathrooms').val('');
-    $('#km').val('');
-    $('.places').show();
-    $('.check-amenity').each(function () {
-      $(this).prop('checked', false);
-    });
-  });
+  var id = $('input-id').val();
+  $.ajax((_$$ajax = {
+    url: "http://127.0.0.1:8000/api/getData",
+    method: "GET",
+    data: $('#input-id').val()
+  }, _defineProperty(_$$ajax, "data", {
+    id: id
+  }), _defineProperty(_$$ajax, "success", function success(data) {
+    console.log(data);
+  }), _defineProperty(_$$ajax, "error", function error() {
+    alert("E' avvenuto un errore. ");
+  }), _$$ajax));
 });
 
 /***/ }),
 
-/***/ 3:
-/*!**************************************!*\
-  !*** multi ./resources/js/search.js ***!
-  \**************************************/
+/***/ 6:
+/*!************************************!*\
+  !*** multi ./resources/js/stat.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources\js\stat.js */"./resources/js/stat.js");
 
 
 /***/ })

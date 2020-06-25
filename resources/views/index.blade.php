@@ -10,8 +10,14 @@
         <div class="my-places">
             @foreach ($places as $place)
                 @if ($place->visible == 1)
-                    <div class="my-place">
-                        <a href="{{route('show', $place->id)}}">
+                    <form class="center bg" action="{{route('visit', $place->id)}}" id="{{$place->id}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
+                        <a href="javascript:;" onclick="document.getElementById('{{$place->id}}').submit();">
+                        <input type="hidden" name="mess">
+                        <div class="my-place">
+                        {{-- <input id="invia-form" class="btn btn-primary" type="submit" value="Visualizza appartamento"> --}}
+
                             <div class="index-place-container">
                                 @foreach ($place->photo as $photo)
                                 <div class="index-place-foto">
@@ -22,8 +28,9 @@
                                     <h2>{{$place->summary}}</h2>
                                 </div>
                             </div>
+                        </div>
                         </a>
-                    </div>
+                    </form>
                 @endif
             @endforeach
         </div>

@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('placesInRange' , "Api\SearchController@searchPlaces")->name('cerca');
+Route::get('getData' , "Api\StatController@getData");
 Route::get('places' , "Api\SearchController@allPlace");

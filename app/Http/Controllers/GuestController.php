@@ -15,6 +15,7 @@ use App\Amenity;
 use App\InfoPlace;
 use App\Photo;
 use App\Mail;
+use App\Visit;
 
 class GuestController extends Controller
 {
@@ -142,5 +143,21 @@ class GuestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+    public function visit($id) {
+        $userId = Auth::id();
+        $place = Place::findOrFail($id);
+        if ($userId != $place->user_id) {
+            $visit = new Visit;
+            $visit->place_id = $id;
+            $visit->save();
+            return view('show' , compact('place'));
+        }
+            else {
+                return view('user.places.show' , compact('place'));
+            }
     }
 }

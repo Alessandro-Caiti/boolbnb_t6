@@ -36,7 +36,7 @@
         <div class="">
             @foreach ($placesInRange as $place)
                 <div id="{{$place->id}}" class='places'>
-                    <a href="{{route('show' , $place->id)}}">
+                    <a href="{{route('show.visit' , $place->id)}}">
                         <div>
                             <h2>{{$place->summary}}</h2>
                             <p>{{$place->address}}</p>
