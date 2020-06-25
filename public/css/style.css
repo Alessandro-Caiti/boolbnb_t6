@@ -27,6 +27,28 @@ main {
   width: 100%;
 }
 
+.my-places {
+  width: 100%;
+}
+
+.my-places .my-place {
+  width: 100%;
+}
+
+.my-places .my-place .index-place-container {
+  width: 100%;
+}
+
+.my-places .my-place .index-place-container .index-place-foto {
+  width: 50%;
+}
+
+.my-places .my-place .index-place-container .index-place-foto img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 main .my-show-container {
   padding-top: 20px;
 }
