@@ -48,6 +48,10 @@ main .info-apt .apt-description p {
   font-size: 40px;
 }
 
+main .apt-description {
+  font-size: 20px;
+}
+
 main .servizi {
   display: flex;
   justify-content: center;
