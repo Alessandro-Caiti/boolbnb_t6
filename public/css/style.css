@@ -60,6 +60,12 @@ main .appartamenti-manager img {
   justify-content: space-between;
 }
 
+.my-new-home {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
 .my-border {
   border-top: 1px solid lightgrey;
 }

@@ -153,6 +153,13 @@ class PlaceController extends Controller
         }
 
         $data = $request->all();
+
+        if(!isset($data['visible'])) {
+                   $data['visible'] = 0;
+               } else {
+                   $data['visible'] = 1;
+               }
+
         $data['slug'] = Str::slug($data['summary'], '-') ;
         $validator = Validator::make($data, [
             'summary' => 'required|string|max:50',

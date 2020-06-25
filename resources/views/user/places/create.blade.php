@@ -37,11 +37,11 @@
                             @csrf
                             @method('POST')
                             <div class="form-group">
-                                <label for="summary">Sommario</label>
+                                <label for="summary">Sommario*</label>
                                 <input type="text" name="summary" id="summary" class="form-control" value="{{old('summary')}}">
                             </div>
                             <div class="form-group">
-                                <label for="form-address">Indirizzo</label>
+                                <label for="form-address">Indirizzo*</label>
                                 <input type="search" class="form-control" name ="address" id="input-map" placeholder="Dove vivi?" />
                                 <div id="mapid"></div>
                             </div>
@@ -54,25 +54,25 @@
                                 <input type="hidden" name='long' class="form-control" id="long">
                             </div>
                             <div class="form-group">
-                                <label for="price">Prezzo</label>
+                                <label for="price">Prezzo*</label>
                                 <input type="text" name="price" id="price" class="form-control" value="{{old('price')}}">
                             </div>
                             <div class="form-group">
-                                <label for="description">Descrizione</label>
+                                <label for="description">Descrizione*</label>
                                 <div class="">
                                     <textarea name="description" id="description" rows="10" style='min-width:100%'>{{old('description')}}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="rooms">Numero stanze</label>
+                                <label for="rooms">Numero stanze*</label>
                                 <input type="text" name="rooms" id="rooms" class="form-control" value="{{old('rooms')}}">
                             </div>
                             <div class="form-group">
-                                <label for="beds">Posti letto</label>
+                                <label for="beds">Posti letto*</label>
                                 <input type="text" name="beds" id="beds" class="form-control" value="{{old('beds')}}">
                             </div>
                             <div class="form-group">
-                                <label for="bathrooms">Servizi igienici</label>
+                                <label for="bathrooms">Servizi igienici*</label>
                                 <input type="text" name="bathrooms" id="bathrooms" class="form-control" value="{{old('bathrooms')}}">
                             </div>
                             <div class="form-group">
@@ -80,7 +80,7 @@
                                 <input type="text" name="m2" id="m2" class="form-control" value="{{old('m2')}}">
                             </div>
                             <div class="form-group">
-                                <h3>Servizi</h3>
+                                <h3>Servizi*</h3>
                                 {{-- ciclo for each per visualizzare tutte i tag presenti nel db, tag-id per il valore nel db, tag name per la comprensione dell'id associato --}}
                                 @foreach ($amenities as $amenity)
                                     <label for="amenities-{{$amenity->id}}">{{$amenity->name}}</label>
@@ -93,7 +93,7 @@
                                 <h3>Photos</h3>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="inputGroupFile01" name="path" multiple>
-                                    <label class="custom-file-label" for="inputGroupFile01">Aggiungi Foto</label>
+                                    <label class="custom-file-label" for="inputGroupFile01">Aggiungi Foto*</label>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -102,6 +102,9 @@
                                   <input type="checkbox" class="custom-control-input" id="customSwitches" name="visible">
                                   <label class="custom-control-label" for="customSwitches">Visible</label>
                                 </div>
+                            </div>
+                            <div class="">
+                                <small>I campi contrassegnati da (*) sono obbligatori</small>
                             </div>
                             <input class="btn btn-primary" type="submit" value="Invia Dati">
                             <a class="btn btn-danger" href="{{route('user.places.index')}}">Torna indietro senza salvare</a>
