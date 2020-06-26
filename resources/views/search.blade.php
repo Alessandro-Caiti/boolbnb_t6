@@ -52,7 +52,7 @@
                     </a>
                 </div> --}}
                 @if ($place->visible == 1)
-                    <div id="{{$place->id}}" class="card-container col-12">
+                    <div id="{{$place->id}}" class="card-container col-12 places">
                         <form class="" action="{{route('visit', $place->id)}}" id="form-{{$place->id}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
@@ -67,6 +67,9 @@
                                         <div class="summary-container">
                                             <h5>{{$place->summary}}</h5>
                                         </div>
+                                        @foreach ($place->amenities as $amenity)
+                                            <p class="amenities invisible" data-amenities="{{$amenity->id}}">{{$amenity->name}}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                             </a>
