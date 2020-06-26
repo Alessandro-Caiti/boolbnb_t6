@@ -24,9 +24,9 @@
 </head>
     <body>
         <main>
-            <input id="input-id" type="hidden" name="" value="{{$place->id}}">
+            <input type="hidden" id="place-id" value="{{$place->id}}">
             <div class="container">
-                <h1>{{$place->summary}}</h1>
+                <h1 id="summary">{{$place->summary}}</h1>
             </div>
         </main>
     </body>

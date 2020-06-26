@@ -93,23 +93,20 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 $(document).ready(function () {
-  var _$$ajax;
-
-  var id = $('input-id').val();
-  $.ajax((_$$ajax = {
-    url: "http://127.0.0.1:8000/api/getData",
+  console.log('collegato');
+  var idPlace = $('#place-id').val();
+  console.log(idPlace);
+  $.ajax({
+    url: "http://127.0.0.1:8000/api/getData?id=" + idPlace,
     method: "GET",
-    data: $('#input-id').val()
-  }, _defineProperty(_$$ajax, "data", {
-    id: id
-  }), _defineProperty(_$$ajax, "success", function success(data) {
-    console.log(data);
-  }), _defineProperty(_$$ajax, "error", function error() {
-    alert("E' avvenuto un errore. ");
-  }), _$$ajax));
+    success: function success(data) {
+      console.log(data);
+    },
+    error: function error() {
+      alert("E' avvenuto un errore. ");
+    }
+  });
 });
 
 /***/ }),

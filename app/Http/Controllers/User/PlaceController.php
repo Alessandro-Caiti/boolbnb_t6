@@ -227,7 +227,6 @@ class PlaceController extends Controller
             abort('404');
         }
 
-
-        return view('user.places.stat' , compact('place'));
+        return view('user.places.stat' , compact('place'))->with('id' , $id);
     }
 }
