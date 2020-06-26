@@ -115,34 +115,30 @@
                 <div class="row boolbnb-info">
                     <div class="about-us">
                         <ul>
-                           <li><a href="#">Informazioni</a></li>
-                           <li><a href="#">Diversità</a></li>
-                           <li><a href="#">Appartenenza</a></li>
-                           <li><a href="#">Affiddabilià</a></li>
+                           <li><strong>Alberto Dragoni</strong></li>
+                           <li><a href="https://www.linkedin.com/in/alberto-dragoni-a390a61b0/">Linkedin</a></li>
+                           <li><a href="https://github.com/AlbertoDragoni">GitHub</a></li>
                         </ul>
                     </div>
                     <div class="about-us">
                         <ul>
-                           <li><a href="#">Informazioni</a></li>
-                           <li><a href="#">Diversità</a></li>
-                           <li><a href="#">Appartenenza</a></li>
-                           <li><a href="#">Affiddabilià</a></li>
+                           <li><strong>Alessandro Caiti</strong></li>
+                           <li><a href="https://www.linkedin.com/in/alessandro-caiti-aa92b0126/">Linkedin</a></li>
+                           <li><a href="https://github.com/Alessandro-Caiti">GitHub</a></li>
                         </ul>
                     </div>
                     <div class="about-us">
                         <ul>
-                           <li><a href="#">Informazioni</a></li>
-                           <li><a href="#">Diversità</a></li>
-                           <li><a href="#">Appartenenza</a></li>
-                           <li><a href="#">Affiddabilià</a></li>
+                           <li><strong>Michael Molin</strong></li>
+                           <li><a href="https://www.linkedin.com/in/michael-molin-528ab0175/">Linkedin</a></li>
+                           <li><a href="https://github.com/michael-molin">GitHub</a></li>
                         </ul>
                     </div>
                     <div class="about-us">
                         <ul>
-                           <li><a href="#">Informazioni</a></li>
-                           <li><a href="#">Diversità</a></li>
-                           <li><a href="#">Appartenenza</a></li>
-                           <li><a href="#">Affiddabilià</a></li>
+                           <li><strong>Pierluigi Tarquinio</strong></li>
+                           <li><a href="https://www.linkedin.com/in/pierluigitarquinio/">Linkedin</a></li>
+                           <li><a href="https://github.com/tarq-p">GitHub</a></li>
                         </ul>
                     </div>
                 </div>

@@ -28,6 +28,10 @@ main {
   width: 100%;
 }
 
+.my-register-login {
+  padding: 50px 0;
+}
+
 .my-places {
   width: 100%;
 }
