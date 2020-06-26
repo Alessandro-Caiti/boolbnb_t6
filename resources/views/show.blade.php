@@ -12,6 +12,8 @@
                 <div class="row info-apt col-12 justify-content-center">
                     <div class="appartamenti col-6">
                         <p class="apt-description">{{$place->info->description}}</p>
+                        <br>
+                        <h6>Prezzo: {{$place->price}}€</h6>
                     </div>
                     <div class="appartamenti col-6">
                         <div class="servizi">

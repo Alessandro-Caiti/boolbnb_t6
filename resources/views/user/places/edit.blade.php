@@ -26,7 +26,7 @@
         <main>
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 my-create-edit">
                         {{-- sezione di gestione errori nel caso di ritorno dalla funzione store --}}
                         @foreach ($errors->all() as $message)
                             {{$message}}

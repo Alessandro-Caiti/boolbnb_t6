@@ -27,7 +27,7 @@ class GuestController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $places = Place::all();
+        $places = Place::orderBy('created_at', 'desc')->paginate(10);
         return view('index' ,  compact('places'));
     }
 

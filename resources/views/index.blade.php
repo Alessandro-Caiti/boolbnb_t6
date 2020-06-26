@@ -50,6 +50,9 @@
         </div>
 
       </main>
+      <div class="my-paginate">
+          {{$places->links()}}
+      </div>
 
 {{-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="{{asset('js/algolia.js')}}"></script> --}}
