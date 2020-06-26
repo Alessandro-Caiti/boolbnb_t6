@@ -10,19 +10,24 @@
         <div class="my-places justify-content-center row">
             @foreach ($places as $place)
                 @if ($place->visible == 1)
+                    <input type="hidden" name="mess">
                     <div class="card-container col-12 col-md-6">
-                        <div class="place-container">
-                            <a href="{{route('show', $place->id)}}">
-                                <div class="polaroid">
-                                    @foreach ($place->photo as $photo)
-                                    <img src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}" style="width:100%">
-                                    @endforeach
-                                    <div class="summary-container">
-                                        <h5>{{$place->summary}}</h5>
+                        <form class="" action="{{route('visit', $place->id)}}" id="{{$place->id}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('POST')
+                            <a href="javascript:;" onclick="document.getElementById('{{$place->id}}').submit();">
+                                <div class="place-container">
+                                    <div class="polaroid">
+                                        @foreach ($place->photo as $photo)
+                                        <img src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}" style="width:100%">
+                                        @endforeach
+                                        <div class="summary-container">
+                                            <h5>{{$place->summary}}</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </form>
                     </div>
 
                     {{-- <div class="my-place">

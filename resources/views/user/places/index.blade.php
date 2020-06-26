@@ -28,7 +28,7 @@
                     <a class="btn btn-secondary" href="{{route('user.places.edit', $place->id)}}">Modifica</a>
                 </div>
                 <div class="tasto">
-                    <a class="btn btn-success" href="#">Sponsorizza</a>
+                    <a class="btn btn-success" href="{{route('stat', $place->id)}}">Statistiche</a>
                 </div>
                 <div class="tasto">
                     <form action={{route("user.places.destroy" , $place->id)}} method="post">

@@ -15,6 +15,7 @@ use App\Amenity;
 use App\InfoPlace;
 use App\Photo;
 use App\Mail;
+use App\Visit;
 
 
 class PlaceController extends Controller
@@ -215,5 +216,15 @@ class PlaceController extends Controller
         $place->delete();
 
         return redirect()->route('user.places.index');
+    }
+
+    public function stat($id)
+    {
+        $userId = Auth::id();
+        $place = Place::findOrFail($id);
+        if ($userId != $place->user_id) {
+            abort('404');
+        }
+        return view('user.places.stat' , compact('place'))->with('id' , $id);
     }
 }

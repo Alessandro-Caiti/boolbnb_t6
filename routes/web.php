@@ -51,3 +51,5 @@ Route::get('/search', 'GuestController@search')->name('search');
 Route::get('/show/{id}', 'GuestController@show')->name('show');
 Route::post('/show','MailController@store')->name('mail.store');
 Route::delete('/show/{id}','MailController@destroy')->name('mail.destroy');
+Route::get('/stat/{id}', 'User\PlaceController@stat')->name('stat');
+Route::post('/show/{id}','GuestController@visit')->name('visit');
