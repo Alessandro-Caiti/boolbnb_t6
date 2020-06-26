@@ -10,11 +10,12 @@
         <div class="my-places justify-content-center row">
             @foreach ($places as $place)
                 @if ($place->visible == 1)
-                    <input type="hidden" name="mess">
+
                     <div class="card-container col-12 col-md-6">
                         <form class="" action="{{route('visit', $place->id)}}" id="{{$place->id}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
+                            <input type="hidden" name="mess">
                             <a href="javascript:;" onclick="document.getElementById('{{$place->id}}').submit();">
                                 <div class="place-container">
                                     <div class="polaroid">

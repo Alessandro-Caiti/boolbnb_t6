@@ -53,12 +53,14 @@
                 </div> --}}
                 @if ($place->visible == 1)
                     <div id="{{$place->id}}" class="card-container col-12">
-                        <form class="" action="{{route('visit', $place->id)}}" id="{{$place->id}}" method="post" enctype="multipart/form-data">
+                        <form class="" action="{{route('visit', $place->id)}}" id="form-{{$place->id}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
-                            <a href="javascript:;" onclick="document.getElementById('{{$place->id}}').submit();">
+
+                            <a href="javascript:;" onclick="$('#form-{{$place->id}}').submit();">
                                 <div class="place-container">
                                     <div class="polaroid">
+                                        {{-- <input type="submit" name="mess" value="visualizza"> --}}
                                         @foreach ($place->photo as $photo)
                                         <img src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}" style="width:100%">
                                         @endforeach
