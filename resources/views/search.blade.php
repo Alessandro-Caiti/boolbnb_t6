@@ -7,11 +7,11 @@
             <div class="my-filter-container row">
                 <div class="my-src-inputs col-12 col-sm-4">
                     <div class="">
-                        <input class="form-group my-filter" type="number" id="beds" placeholder="Quanti letti?">
-                        <input class="form-group my-filter" type="number" id="rooms" placeholder="Quante stanze?">
+                        <input class="form-group my-filter"  type="number" id="beds" placeholder="Quanti letti?">
+                        <input class="form-group my-filter"  type="number" id="rooms" placeholder="Quante stanze?">
                     </div>
                     <div class="">
-                        <input class="form-group my-filter" type="number" id="bathrooms" placeholder="Quanti bagni?">
+                        <input class="form-group my-filter"  type="number" id="bathrooms" placeholder="Quanti bagni?">
                         <input class="form-group my-filter" type="number" id="km" placeholder="Raggio in Km?">
                     </div>
                 </div>
