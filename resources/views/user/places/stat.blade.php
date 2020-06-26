@@ -26,9 +26,12 @@
         <main>
             <input type="hidden" id="place-id" value="{{$place->id}}">
             <div class="container">
-                <h1 id="summary">{{$place->summary}}</h1>
+                <canvas id="myChart" width="400" height="400"></canvas>
             </div>
         </main>
     </body>
-    <script src="{{asset('js/stat.js')}}" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/locale/it.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" charset="utf-8"></script>
+<script src="{{asset('js/stat.js')}}" charset="utf-8"></script>
 </html>
