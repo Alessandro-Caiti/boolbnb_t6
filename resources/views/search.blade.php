@@ -59,7 +59,7 @@
 
                             <a href="javascript:;" onclick="$('#form-{{$place->id}}').submit();">
                                 <div class="place-container">
-                                    <div class="polaroid">
+                                    <div class="my-src-polaroid">
                                         {{-- <input type="submit" name="mess" value="visualizza"> --}}
                                         @foreach ($place->photo as $photo)
                                         <img src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}" style="width:100%">
@@ -68,7 +68,7 @@
                                             <h5>{{$place->summary}}</h5>
                                         </div>
                                         @foreach ($place->amenities as $amenity)
-                                            <p class="amenities invisible" data-amenities="{{$amenity->id}}">{{$amenity->name}}</p>
+                                            <p class="amenities d-none" data-amenities="{{$amenity->id}}">{{$amenity->name}}</p>
                                         @endforeach
                                     </div>
                                 </div>

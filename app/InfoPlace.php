@@ -14,6 +14,7 @@ class InfoPlace extends Model
         'm2',
         'description'
     ];
+    protected $primaryKey = 'place_id';
 
     public function place()
     {

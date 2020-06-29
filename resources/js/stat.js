@@ -39,7 +39,7 @@ $(document).ready(function() {
                             label: 'Visite mensili',
                             backgroundColor: 'lightblue',
                             borderColor: 'blue',
-                            lineTension: 0.5,
+                            lineTension: 0,
                             data: views
                         }]
                     },

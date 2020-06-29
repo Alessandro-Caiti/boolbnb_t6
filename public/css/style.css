@@ -164,7 +164,7 @@ main .my-message-container {
 .my-src-places .card-container {
   width: 100%;
   height: 370px;
-  margin: 30px 0;
+  margin: 100px 0;
   padding: 0;
 }
 
@@ -176,20 +176,20 @@ main .my-message-container {
   color: black;
 }
 
-.my-src-places .card-container .place-container .polaroid {
+.my-src-places .card-container .place-container .my-src-polaroid {
   width: 100%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
 }
 
-.my-src-places .card-container .place-container .polaroid img {
+.my-src-places .card-container .place-container .my-src-polaroid img {
   height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.my-src-places .card-container .place-container .polaroid .summary-container {
+.my-src-places .card-container .place-container .my-src-polaroid .summary-container {
   text-align: center;
   padding: 10px 20px;
 }
@@ -233,6 +233,27 @@ main .my-message-container {
 
 .my-tasti .tasto {
   margin-top: 30px;
+}
+
+.my-main-stat-container {
+  height: 100vh;
+}
+
+.my-main-stat-container .my-mid-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-main-stat-container .my-mid-container .my-stat-container {
+  width: 50%;
+  margin-top: 50px;
+}
+
+.my-main-stat-container .my-mid-container .my-stat-button-container {
+  margin: 50px 0;
 }
 
 .my-border {

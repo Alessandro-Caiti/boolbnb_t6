@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     $('#btn-filter').on('click', function() {
+        $('.places').show();
         var beds = parseInt($('#beds').val());
         if(Number.isNaN(beds)) {
             beds= 1;

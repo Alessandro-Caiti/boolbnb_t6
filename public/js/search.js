@@ -95,6 +95,7 @@
 
 $(document).ready(function () {
   $('#btn-filter').on('click', function () {
+    $('.places').show();
     var beds = parseInt($('#beds').val());
 
     if (Number.isNaN(beds)) {
@@ -209,7 +210,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\PHP\boolbnb_t6\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! D:\MAMP\htdocs\progettibool\progetto_team_6\boolbnb_t6\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

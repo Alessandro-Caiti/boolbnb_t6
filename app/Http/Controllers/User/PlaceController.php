@@ -149,6 +149,7 @@ class PlaceController extends Controller
         $userId = Auth::id();
         $place = Place::findOrFail($id);
         $infoPlace = InfoPlace::where('place_id' , $id)->first();
+
         if ($userId != $place->user_id) {
             abort('404');
         }
@@ -162,6 +163,8 @@ class PlaceController extends Controller
                }
 
         $data['slug'] = Str::slug($data['summary'], '-') ;
+        // $data['place_id'] = $infoPlace->place_id;
+        // $data['id'] = $infoPlace->place_id;
         $validator = Validator::make($data, [
             'summary' => 'required|string|max:50',
             'price' => 'required|numeric',
@@ -184,6 +187,7 @@ class PlaceController extends Controller
 
         $infoPlace->fill($data);
         $savedInfo = $infoPlace->update();
+
 
         // if (isset($data['path'])) {
         //     $path = Storage::disk('public')->put('images', $data['path']);

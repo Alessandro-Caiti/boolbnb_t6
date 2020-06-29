@@ -1,0 +1,18 @@
+.my-main-stat-container {
+    height: 100vh;
+    .my-mid-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .my-stat-container {
+            width: 50%;
+            // height: 50%;
+            margin-top: 50px;
+        }
+        .my-stat-button-container {
+            margin: 50px 0;
+        }
+    }
+}
