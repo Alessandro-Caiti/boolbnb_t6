@@ -1,10 +1,12 @@
 {
     "/js/algolia.js": "/js/algolia.js",
+    "/js/algoliaForm.js": "/js/algoliaForm.js",
     "/js/algoliaShow.js": "/js/algoliaShow.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/style.css": "/css/style.css",
     "/css/welcome.css": "/css/welcome.css",
     "/css/show.css": "/css/show.css",
-    "/js/search.js": "/js/search.js"
+    "/js/search.js": "/js/search.js",
+    "/js/stat.js": "/js/stat.js"
 }

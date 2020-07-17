@@ -15,6 +15,7 @@ use App\Amenity;
 use App\InfoPlace;
 use App\Photo;
 use App\Mail;
+use App\Visit;
 
 
 class PlaceController extends Controller
@@ -65,12 +66,12 @@ class PlaceController extends Controller
             'summary' => 'required|string|max:50',
             'price' => 'required|numeric',
             'address' => 'required|string|max:150',
-            'city' => 'required|string|max:50',
             'rooms' => 'required|numeric',
             'beds' => 'required|numeric',
             'bathrooms' => 'required|numeric',
             'm2' => 'numeric',
-            'description' => 'required'
+            'description' => 'required',
+            'path' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -148,12 +149,22 @@ class PlaceController extends Controller
         $userId = Auth::id();
         $place = Place::findOrFail($id);
         $infoPlace = InfoPlace::where('place_id' , $id)->first();
+
         if ($userId != $place->user_id) {
             abort('404');
         }
 
         $data = $request->all();
+
+        if(!isset($data['visible'])) {
+                   $data['visible'] = 0;
+               } else {
+                   $data['visible'] = 1;
+               }
+
         $data['slug'] = Str::slug($data['summary'], '-') ;
+        // $data['place_id'] = $infoPlace->place_id;
+        // $data['id'] = $infoPlace->place_id;
         $validator = Validator::make($data, [
             'summary' => 'required|string|max:50',
             'price' => 'required|numeric',
@@ -176,6 +187,7 @@ class PlaceController extends Controller
 
         $infoPlace->fill($data);
         $savedInfo = $infoPlace->update();
+
 
         // if (isset($data['path'])) {
         //     $path = Storage::disk('public')->put('images', $data['path']);
@@ -208,5 +220,15 @@ class PlaceController extends Controller
         $place->delete();
 
         return redirect()->route('user.places.index');
+    }
+
+    public function stat($id)
+    {
+        $userId = Auth::id();
+        $place = Place::findOrFail($id);
+        if ($userId != $place->user_id) {
+            abort('404');
+        }
+        return view('user.places.stat' , compact('place'))->with('id' , $id);
     }
 }

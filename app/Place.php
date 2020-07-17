@@ -12,7 +12,6 @@ class Place extends Model
         'slug',
         'price',
         'address',
-        'city',
         'lat',
         'long',
         'visible'

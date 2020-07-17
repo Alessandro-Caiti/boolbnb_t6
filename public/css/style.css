@@ -1,47 +1,263 @@
 header {
-  height: 500px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 30px;
 }
 
-header .logo-img img {
-  margin-left: 50px;
+.logo-img img {
   width: 80px;
   height: auto;
 }
 
-header .login {
-  margin-right: 50px;
+.my-search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.my-search .bottone {
+  height: calc(1.6em + 0.75rem + 2px);
+  margin-left: 20px;
 }
 
 main {
   display: flex;
+  justify-content: center;
   width: 100%;
 }
 
-main .appartamenti-manager {
-  height: 280px;
+.my-register-login {
+  padding: 50px 0;
+}
+
+.my-create-edit {
+  padding: 50px;
+}
+
+.my-paginate {
   display: flex;
   justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid grey;
 }
 
-main .appartamenti-manager.tasti {
-  flex-direction: column;
+.my-places {
+  width: 100%;
 }
 
-main .appartamenti-manager .tasto {
+.my-places .card-container {
+  width: 100%;
+  height: 370px;
+  margin-top: 20px;
+}
+
+.my-places .card-container .place-container {
+  width: 100%;
+}
+
+.my-places .card-container .place-container a {
+  color: black;
+}
+
+.my-places .card-container .place-container .polaroid {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.my-places .card-container .place-container .polaroid img {
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.my-places .card-container .place-container .polaroid .summary-container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+main .my-show-container {
+  padding-top: 20px;
+}
+
+main .appartamenti-show {
+  width: 100%;
+  height: 600px;
+  padding-top: 50px;
+}
+
+main .appartamenti-show img {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+main .info-apt {
   margin-top: 30px;
 }
 
-main .appartamenti-manager img {
+main .info-apt .apt-description p {
+  font-size: 40px;
+}
+
+main .apt-description {
+  font-size: 20px;
+}
+
+main .servizi {
+  display: flex;
+  justify-content: center;
+}
+
+main .my-message-form {
+  padding-bottom: 20px;
+}
+
+main .my-message-container {
+  border-top: 1px solid lightgray;
+  padding: 8px 0;
+}
+
+.src-main {
+  display: block;
+}
+
+.src-main .my-100 {
+  width: 100%;
+  margin: 20px 0;
+  border: 1px solid lightgrey;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.src-main .my-100 .my-filter-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.src-main .my-100 .my-filter-container .my-src-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.src-main .my-100 .my-filter-container .my-src-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.src-main .my-100 .my-filter-container .my-src-buttons .my-button-container {
+  height: calc(1.6em + 0.75rem + 2px);
+}
+
+.src-main .my-100 .my-filter-container .my-src-buttons .my-button-container button {
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 100%;
+}
+
+.my-src-places .card-container {
+  width: 100%;
+  height: 370px;
+  margin: 100px 0;
+  padding: 0;
+}
+
+.my-src-places .card-container .place-container {
+  width: 100%;
+}
+
+.my-src-places .card-container .place-container a {
+  color: black;
+}
+
+.my-src-places .card-container .place-container .my-src-polaroid {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.my-src-places .card-container .place-container .my-src-polaroid img {
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.my-src-places .card-container .place-container .my-src-polaroid .summary-container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.my-new-home {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.my-dash-container {
+  padding-top: 20px;
+}
+
+.my-dash-flex {
+  display: flex;
+  min-height: 300px;
+  justify-content: space-around;
+}
+
+.appartamenti-manager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.appartamenti-manager img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.my-tasti {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.my-tasti .tasto {
+  margin-top: 30px;
+}
+
+.my-main-stat-container {
+  height: 100vh;
+}
+
+.my-main-stat-container .my-mid-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-main-stat-container .my-mid-container .my-stat-container {
+  width: 50%;
+  margin-top: 50px;
+}
+
+.my-main-stat-container .my-mid-container .my-stat-button-container {
+  margin: 50px 0;
+}
+
+.my-border {
+  border-top: 1px solid lightgrey;
 }
 
 footer {
@@ -50,10 +266,10 @@ footer {
   background-color: #f8fafc;
   justify-content: space-between;
   text-align: center;
+  padding-top: 30px;
 }
 
 footer .logo-img img {
-  margin-left: 50px;
   width: 80px;
   height: 80px;
 }

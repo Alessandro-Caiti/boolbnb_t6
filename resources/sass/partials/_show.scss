@@ -1,5 +1,10 @@
 main {
-    .appartamenti-manager {
+
+    .my-show-container {
+        padding-top: 20px;
+    }
+
+    .appartamenti-show {
         width: 100%;
         height: 600px;
         padding-top: 50px;
@@ -9,6 +14,7 @@ main {
             height: 100%;
             margin: 0 auto;
             object-fit: cover;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
     }
 
@@ -19,45 +25,26 @@ main {
         }
     }
 
+    .apt-description {
+        font-size: 20px;
+    }
+
+    .servizi {
+        display: flex;
+        justify-content: center;
+    }
+
     .servizi ul li {
-        text-align: center;
-        list-style: none;
+        // text-align: center;
+        // list-style: none;
+    }
+
+    .my-message-form{
+        padding-bottom: 20px;
+    }
+
+    .my-message-container {
+        border-top: 1px solid lightgray;
+        padding: 8px 0;
     }
 }
-
-footer {
-    padding-top: 50px;
-    display: flex;
-    width: 100%;
-    background-color: #f8fafc;
-    justify-content: space-between;
-    text-align: center;
-
-    .logo-img {
-        img {
-            margin-left: 50px;
-            width: 80px;
-            height: 80px;
-        }
-    }
-
-    .boolbnb-info {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-
-
-        .about-us ul li {
-            padding-top: 20px;
-            list-style: none;
-            justify-content: space-between;
-            font-size: 18px;
-        }
-        .about-us ul li  {
-            color: rgb(72, 72, 72);
-        }
-
-        }
-    }

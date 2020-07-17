@@ -20,7 +20,6 @@ class CreatePlacesTable extends Migration
             $table->string('slug', 50);
             $table->decimal('price', 6, 2);
             $table->string('address', 150);
-            $table->string('city', 50);
             $table->float('lat', 10, 6)->nullable();
             $table->float('long', 10, 6)->nullable();
             $table->boolean('visible')->default(1);

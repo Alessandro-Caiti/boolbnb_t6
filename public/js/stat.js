@@ -81,136 +81,94 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/search.js":
-/*!********************************!*\
-  !*** ./resources/js/search.js ***!
-  \********************************/
+/***/ "./resources/js/stat.js":
+/*!******************************!*\
+  !*** ./resources/js/stat.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  $('#btn-filter').on('click', function () {
-    $('.places').show();
-    var beds = parseInt($('#beds').val());
+  console.log('collegato');
+  var idPlace = $('#place-id').val();
+  var mesi = moment.months();
+  $.ajax({
+    url: "http://127.0.0.1:8000/api/getData?id=" + idPlace,
+    method: "GET",
+    success: function success(data) {
+      var risultati = data;
+      var dataMonths = costruttoreDatiMesi(risultati); // var visualTotali = dataMonths.reduce(myFunc);
 
-    if (Number.isNaN(beds)) {
-      beds = 1;
-    }
+      myGraph(mesi, dataMonths);
 
-    var rooms = parseInt($('#rooms').val());
+      function costruttoreDatiMesi(array) {
+        var rawObj = {};
+        var datoCompleto = [];
 
-    if (Number.isNaN(rooms)) {
-      rooms = 1;
-    }
-
-    var bathrooms = parseInt($('#bathrooms').val());
-
-    if (Number.isNaN(bathrooms)) {
-      bathrooms = 1;
-    }
-
-    var km = parseInt($('#km').val());
-
-    if (Number.isNaN(km)) {
-      km = 20;
-    }
-
-    var amenitiesfilter = [];
-    amenitiesfilter = amenityFilter();
-    $.ajax({
-      url: "http://127.0.0.1:8000/api/placesInRange",
-      method: "GET",
-      data: {
-        lat: $('#places-lat').val(),
-        "long": $('#places-long').val()
-      },
-      success: function success(data) {
-        var risultati = data;
-
-        for (var i = 0; i < risultati.length; i++) {
-          var amenitiesInPlace = [];
-          var risultato = risultati[i];
-
-          if (risultato.distance > km) {
-            $('#' + risultato.id).hide();
-          }
-
-          if (risultato.info.beds < beds) {
-            $('#' + risultato.id).hide();
-          }
-
-          if (risultato.info.rooms < rooms) {
-            $('#' + risultato.id).hide();
-          }
-
-          if (risultato.info.bathrooms < bathrooms) {
-            $('#' + risultato.id).hide();
-          }
-
-          $('#' + risultato.id).find('.amenities').each(function () {
-            var amenity = parseInt($(this).data('amenities'));
-            amenitiesInPlace.push(amenity);
-          });
-          console.log(amenitiesfilter);
-
-          if (amenitiesfilter.length > 0) {
-            for (var x = 0; x < amenitiesfilter.length; x++) {
-              var check = amenitiesInPlace.includes(amenitiesfilter[x]);
-              console.log(risultato.id + ' ' + check);
-
-              if (check == false) {
-                $('#' + risultato.id).hide();
-                console.log(risultato.id + ' nascosto');
-              }
-            }
+        for (var x = 0; x < 12; x++) {
+          if (rawObj[x] === undefined) {
+            rawObj[x] = 0;
           }
         }
-      },
-      error: function error() {
-        alert("E' avvenuto un errore. ");
+
+        for (var i = 0; i < array.length; i++) {
+          var visita = array[i];
+          var giorno = visita.created_at;
+          var mese = moment(giorno, "DD-MM-YYYY").clone().month();
+          rawObj[mese] += 1;
+        }
+
+        for (var key in rawObj) {
+          datoCompleto.push(rawObj[key]);
+        }
+
+        return datoCompleto;
       }
-    });
 
-    function amenityFilter() {
-      // Funzione che crea un array filters inserendo i valori delle checkbox che sono stati cliccati dall'utente
-      var filters = [];
-      $('.check-amenity').each(function () {
-        if ($(this).prop('checked') == true) {
-          filters.push(parseInt($(this).val()));
-        }
-      });
-      return filters;
+      ;
+
+      function myGraph(mesi, views) {
+        var ctx = $('#myChart');
+        var chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: mesi,
+            datasets: [{
+              label: 'Visite mensili',
+              backgroundColor: 'lightblue',
+              borderColor: 'blue',
+              lineTension: 0,
+              data: views
+            }]
+          }
+        });
+      }
+
+      function myFunc(total, num) {
+        return total + num;
+      }
+    },
+    error: function error() {
+      alert("E' avvenuto un errore. ");
     }
-
-    ;
-  });
-  $('#btn-clear').on('click', function () {
-    $('#beds').val('');
-    $('#rooms').val('');
-    $('#bathrooms').val('');
-    $('#km').val('');
-    $('.places').show();
-    $('.check-amenity').each(function () {
-      $(this).prop('checked', false);
-    });
   });
 });
 
 /***/ }),
 
-/***/ 3:
-/*!**************************************!*\
-  !*** multi ./resources/js/search.js ***!
-  \**************************************/
+/***/ 6:
+/*!************************************!*\
+  !*** multi ./resources/js/stat.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\MAMP\htdocs\progettibool\progetto_team_6\boolbnb_t6\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! D:\MAMP\htdocs\progettibool\progetto_team_6\boolbnb_t6\resources\js\stat.js */"./resources/js/stat.js");
 
 
 /***/ })

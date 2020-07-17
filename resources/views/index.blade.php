@@ -1,131 +1,59 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Index Guest</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
-        <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
-
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    </head>
-    <body>
-      <header>
-        <div class="logo-img">
-            <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
-        </div>
-        <div class="nav">
-            <form action="{{route('search')}}" method="post">
-                @csrf
-                @method('GET')
-                <div class="form-group">
-                    <input type="search" class="form-control" name ="search" id="input-map" placeholder="Dove andiamo?" />
-                    <div class="invisible" id="mapid"></div>
-                </div>
-                <div class="form-group invisible">
-                    <label for="form-zip">latitudine</label>
-                    <input type="text" name='lat' class="form-control" id="lat">
-                </div>
-                <div class="form-group invisible">
-                    <label for="form-zip">longitudine</label>
-                    <input type="text" name='long' class="form-control" id="long">
-                </div>
-                <input class="btn btn-primary" type="submit" value="Cerca">
-            </form>
-        </div>
-        {{-- <div class="">
-            form con rotta search
-            bottone submit con rotta search e gli passo lat e long
-
-            https://stackoverflow.com/questions/29814209/getting-the-form-input-value-in-laravel
-
-            <form action="{{{ url("search/$posizione") }}}" method="get">
-                <input type="hidden" name ="status_Id" value="{{$swagger->status_Id}}">
-                <input type="submit" value="Delete">
-            </form>
-        </div> --}}
-        <div class="login">
-          <div class="flex-center position-ref full-height">
-              @if (Route::has('login'))
-                  <div class="top-right links">
-                      @auth
-                          <a href="{{ url('/home') }}">Home</a>
-                      @else
-                          <a href="{{ route('login') }}">Login</a>
-
-                          @if (Route::has('register'))
-                              <a href="{{ route('register') }}">Register</a>
-                          @endif
-                      @endauth
-                  </div>
-              @endif
-          </div>
-        </div>
-      </header>
-
+@extends('layouts.layout')
+@section('content')
       <main>
 
-          <div id="mapid"></div>
-          <style>
-              #mapid {height: 0px};
-          </style>
-        <div class="appartamenti-sponsor">
+        <div id="mapid"></div>
+        <style>
+          #mapid {height: 0px};
+        </style>
 
-        </div>
-        <div class="appartamenti">
+        <div class="my-places justify-content-center row">
+            @foreach ($places as $place)
+                @if ($place->visible == 1)
 
+                    <div class="card-container col-12 col-md-6">
+                        <form class="" action="{{route('visit', $place->id)}}" id="{{$place->id}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('POST')
+                            <input type="hidden" name="mess">
+                            <a href="javascript:;" onclick="document.getElementById('{{$place->id}}').submit();">
+                                <div class="place-container">
+                                    <div class="polaroid">
+                                        @foreach ($place->photo as $photo)
+                                        <img src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}" style="width:100%">
+                                        @endforeach
+                                        <div class="summary-container">
+                                            <h5>{{$place->summary}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </form>
+                    </div>
+
+                    {{-- <div class="my-place">
+                        <a href="{{route('show', $place->id)}}">
+                            <div class="index-place-container">
+                                @foreach ($place->photo as $photo)
+                                <div class="index-place-foto">
+                                    <img class="index-img" src="{{asset('storage/'  . $photo->path)}}" alt="{{$photo->name}}">
+                                </div>
+                                @endforeach
+                                <div class="index-place-summary">
+                                    <h2>{{$place->summary}}</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div> --}}
+                @endif
+            @endforeach
         </div>
+
       </main>
+      <div class="my-paginate">
+          {{$places->links()}}
+      </div>
 
-      {{-- <footer>
-        <div class="logo-img">
-          <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
-        </div>
-        <h3>TEAM 6</h3>
-      </footer> --}}
-
-      <footer>
-          <div class="logo-img">
-            <img src="https://clipart.info/images/ccovers/1499955328airbnb-2-logo-png.png" alt="logo">
-          </div>
-          <div class="row boolbnb-info">
-              <div class="about-us">
-                  <ul>
-                     <li><a href="#">Informazioni</a></li>
-                     <li><a href="#">Diversità</a></li>
-                     <li><a href="#">Appartenenza</a></li>
-                     <li><a href="#">Affiddabilià</a></li>
-                  </ul>
-              </div>
-              <div class="about-us">
-                  <ul>
-                     <li><a href="#">Informazioni</a></li>
-                     <li><a href="#">Diversità</a></li>
-                     <li><a href="#">Appartenenza</a></li>
-                     <li><a href="#">Affiddabilià</a></li>
-                  </ul>
-              </div>
-              <div class="about-us">
-                  <ul>
-                     <li><a href="#">Informazioni</a></li>
-                     <li><a href="#">Diversità</a></li>
-                     <li><a href="#">Appartenenza</a></li>
-                     <li><a href="#">Affiddabilià</a></li>
-                  </ul>
-              </div>
-              <div class="about-us">
-                  <ul>
-                     <li><a href="#">Informazioni</a></li>
-                     <li><a href="#">Diversità</a></li>
-                     <li><a href="#">Appartenenza</a></li>
-                     <li><a href="#">Affiddabilià</a></li>
-                  </ul>
-              </div>
-          </div>
-      </footer>
-  </body>
-
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-<script src="{{asset('js/algolia.js')}}"></script>
-</html>
+{{-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+<script src="{{asset('js/algolia.js')}}"></script> --}}
+@endsection

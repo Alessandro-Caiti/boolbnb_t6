@@ -95,6 +95,9 @@ class MailController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mail = Mail::findOrFail($id);
+        $mail->delete();
+
+        return redirect()->back();
     }
 }

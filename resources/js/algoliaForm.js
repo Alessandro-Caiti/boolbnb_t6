@@ -1,12 +1,13 @@
 $( document ).ready(function() {
+    console.log('form collegato');
     var places = require('places.js');
     var placesAutocomplete = places({
         appId: 'pl0MC3PGQDCZ',
         apiKey: 'd2e56071abd2939d263fd7c896b7fadc',
-        container: document.querySelector('#input-map')
+        container: document.querySelector('#address')
     });
 
-    var map = L.map('map-show', {
+    var map = L.map('map-form', {
     scrollWheelZoom: true,
     zoomControl: true
   });
@@ -25,15 +26,8 @@ $( document ).ready(function() {
   var markers = [];
   var puntatori = [];
 
-
-  var lat = $('#lat-show').val();
-  var long = $('#long-show').val();
-  console.log(lat);
-  console.log(long);
-
-  map.setView(new L.LatLng(lat, long), 10);
+  map.setView(new L.LatLng(0, 0), 5);
   map.addLayer(osmLayer);
-  var posizione = L.marker([lat, long]).addTo(map);
 
   placesAutocomplete.on('suggestions', handleOnSuggestions);
   placesAutocomplete.on('cursorchanged', handleOnCursorchanged);
@@ -99,28 +93,14 @@ $( document ).ready(function() {
     map.fitBounds(featureGroup.getBounds().pad(0.5), {animate: false});
   }
 
-  $('#input-map').change(function() {
-        var posizione = $('#input-map').val();
+  $('#address').change(function() {
+        var posizione = $('#address').val();
         var mark = markers[0];
         var lat = mark._latlng.lat;
         var long = mark._latlng.lng;
-        $('#lat').val(lat);
-        $('#long').val(long);
+        $('#lat-form').val(lat);
+        $('#long-form').val(long);
 });
 
-
-$('#input-map').on('keyup', function (event) {
-    if (event.key == 'Enter') {
-        var posizione = $('#input-map').val();
-        var mark = markers[0];
-        var lat = mark._latlng.lat;
-        var long = mark._latlng.lng;
-        $('#lat').val(lat);
-        $('#long').val(long);
-    }
-});
-
-    console.log($('#lat').val());
-    console.log($('#long').val());
 
 });
